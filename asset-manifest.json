@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/DangoTV/static/css/main.5670aea5.chunk.css",
+    "main.js": "/DangoTV/static/js/main.d9e4d888.chunk.js",
+    "main.js.map": "/DangoTV/static/js/main.d9e4d888.chunk.js.map",
+    "runtime-main.js": "/DangoTV/static/js/runtime-main.a21bd79e.js",
+    "runtime-main.js.map": "/DangoTV/static/js/runtime-main.a21bd79e.js.map",
+    "static/js/2.0f6f9546.chunk.js": "/DangoTV/static/js/2.0f6f9546.chunk.js",
+    "static/js/2.0f6f9546.chunk.js.map": "/DangoTV/static/js/2.0f6f9546.chunk.js.map",
+    "static/js/3.f1a41d56.chunk.js": "/DangoTV/static/js/3.f1a41d56.chunk.js",
+    "static/js/3.f1a41d56.chunk.js.map": "/DangoTV/static/js/3.f1a41d56.chunk.js.map",
+    "index.html": "/DangoTV/index.html",
+    "static/css/main.5670aea5.chunk.css.map": "/DangoTV/static/css/main.5670aea5.chunk.css.map",
+    "static/js/2.0f6f9546.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.0f6f9546.chunk.js.LICENSE.txt",
+    "static/media/jujutsu-kaisen-cover.49a2eef2.png": "/DangoTV/static/media/jujutsu-kaisen-cover.49a2eef2.png",
+    "static/media/logo.172c94f6.svg": "/DangoTV/static/media/logo.172c94f6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a21bd79e.js",
+    "static/js/2.0f6f9546.chunk.js",
+    "static/css/main.5670aea5.chunk.css",
+    "static/js/main.d9e4d888.chunk.js"
+  ]
+}
