@@ -1,0 +1,16 @@
+.Link {
+    margin-right: 40px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 17px;
+
+    color: #eceff3;
+    text-decoration: none;
+}
+
+.Link--active {
+    color: #c678dd;
+    text-decoration: none;
+}
