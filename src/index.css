@@ -6,3 +6,33 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
+/* Rules for sizing the icon. */
+.md-18 {
+    font-size: 18px;
+}
+.md-24 {
+    font-size: 24px;
+}
+.md-36 {
+    font-size: 36px;
+}
+.md-48 {
+    font-size: 48px;
+}
+
+/* Rules for using icons as black on a light background. */
+.md-dark {
+    color: rgba(40, 44, 52, 0.54);
+}
+.md-dark-inactive {
+    color: rgba(40, 44, 52, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.md-light {
+    color: rgba(236, 239, 243, 1);
+}
+.md-light-inactive {
+    color: rgba(236, 239, 243, 0.3);
+}

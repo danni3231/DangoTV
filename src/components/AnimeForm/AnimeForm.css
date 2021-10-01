@@ -1,4 +1,6 @@
-.AnimeForm {
+.AnimeForm h2 {
+    margin-top: 80px;
+    margin-bottom: 20px;
 }
 
 .input {
@@ -9,6 +11,7 @@
     line-height: 17px;
 
     color: #282c34;
+    margin-bottom: 32px;
 }
 
 .input input {
@@ -17,6 +20,7 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 135%;
+    margin-top: 12px;
 
     color: #282c34;
     padding: 12px;
@@ -24,6 +28,12 @@
     border: 1px solid #282c34;
     box-sizing: border-box;
     border-radius: 10px;
+    outline: none;
+}
+
+.input input:focus-visible {
+    color: #282c34;
+    border: 2px solid #c678dd;
 }
 
 button {

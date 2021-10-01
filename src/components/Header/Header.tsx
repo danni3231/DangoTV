@@ -2,6 +2,7 @@ import * as React from "react";
 import "./Header.css";
 import NavLink from "./NavLink";
 import logo from "../../Data/Images/logo.svg";
+import InputSearch from "./InputSearch";
 
 interface HeaderProps {
     banner?: boolean;
@@ -18,6 +19,10 @@ const Header: React.FC<HeaderProps> = ({banner}) => {
                     <NavLink text="Studios" url="" />
                     <NavLink text="Social" url="" />
                 </nav>
+            </div>
+
+            <div className="header__section">
+                <InputSearch />
             </div>
         </header>
     );
