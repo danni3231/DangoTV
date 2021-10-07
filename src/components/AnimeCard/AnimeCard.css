@@ -3,11 +3,10 @@
     height: 351px;
     border-radius: 15px;
     position: relative;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .AnimeCard:hover {
-    box-shadow: inset 0px 0px 25px #f3ecf3;
     cursor: pointer;
 }
 

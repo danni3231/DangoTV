@@ -27,7 +27,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate}) => {
         // si el formulario es válido, llamamos al evento onCreate
         onCreate({
             name: name,
-            imgUrl: url,
+            cover: url,
         });
         /*}
          else {
