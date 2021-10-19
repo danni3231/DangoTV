@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/DangoTV/static/css/main.c0608bf4.chunk.css",
-    "main.js": "/DangoTV/static/js/main.809d7ac9.chunk.js",
-    "main.js.map": "/DangoTV/static/js/main.809d7ac9.chunk.js.map",
-    "runtime-main.js": "/DangoTV/static/js/runtime-main.2b640d8f.js",
-    "runtime-main.js.map": "/DangoTV/static/js/runtime-main.2b640d8f.js.map",
-    "static/js/2.a96eeaf3.chunk.js": "/DangoTV/static/js/2.a96eeaf3.chunk.js",
-    "static/js/2.a96eeaf3.chunk.js.map": "/DangoTV/static/js/2.a96eeaf3.chunk.js.map",
-    "static/js/3.6e8ac5f6.chunk.js": "/DangoTV/static/js/3.6e8ac5f6.chunk.js",
-    "static/js/3.6e8ac5f6.chunk.js.map": "/DangoTV/static/js/3.6e8ac5f6.chunk.js.map",
+    "main.css": "/DangoTV/static/css/main.a19bac27.chunk.css",
+    "main.js": "/DangoTV/static/js/main.c86d4deb.chunk.js",
+    "main.js.map": "/DangoTV/static/js/main.c86d4deb.chunk.js.map",
+    "runtime-main.js": "/DangoTV/static/js/runtime-main.b5b27fe9.js",
+    "runtime-main.js.map": "/DangoTV/static/js/runtime-main.b5b27fe9.js.map",
+    "static/js/2.50140eb3.chunk.js": "/DangoTV/static/js/2.50140eb3.chunk.js",
+    "static/js/2.50140eb3.chunk.js.map": "/DangoTV/static/js/2.50140eb3.chunk.js.map",
+    "static/js/3.7ad32e21.chunk.js": "/DangoTV/static/js/3.7ad32e21.chunk.js",
+    "static/js/3.7ad32e21.chunk.js.map": "/DangoTV/static/js/3.7ad32e21.chunk.js.map",
     "index.html": "/DangoTV/index.html",
-    "static/css/main.c0608bf4.chunk.css.map": "/DangoTV/static/css/main.c0608bf4.chunk.css.map",
-    "static/js/2.a96eeaf3.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.a96eeaf3.chunk.js.LICENSE.txt",
+    "static/css/main.a19bac27.chunk.css.map": "/DangoTV/static/css/main.a19bac27.chunk.css.map",
+    "static/js/2.50140eb3.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.50140eb3.chunk.js.LICENSE.txt",
     "static/media/jujutsu-kaisen-cover.49a2eef2.png": "/DangoTV/static/media/jujutsu-kaisen-cover.49a2eef2.png",
+    "static/media/jujutsu_episode_1.3cacf505.jpg": "/DangoTV/static/media/jujutsu_episode_1.3cacf505.jpg",
     "static/media/logo.172c94f6.svg": "/DangoTV/static/media/logo.172c94f6.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2b640d8f.js",
-    "static/js/2.a96eeaf3.chunk.js",
-    "static/css/main.c0608bf4.chunk.css",
-    "static/js/main.809d7ac9.chunk.js"
+    "static/js/runtime-main.b5b27fe9.js",
+    "static/js/2.50140eb3.chunk.js",
+    "static/css/main.a19bac27.chunk.css",
+    "static/js/main.c86d4deb.chunk.js"
   ]
 }
