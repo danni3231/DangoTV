@@ -1,11 +1,27 @@
 .Main {
-   padding: 80px;
+   width: 100%;
+   display: flex;
+   padding: 120px 80px 80px 80px;
+}
+
+.Main__Content {
+   width: 60%;
+   padding-right: 80px;
+}
+
+.Main__News {
+   width: 40%;
+   padding-left: 80px;
 }
 
 .gallery {
-   width: 1112px;
+   width: 100%;
    margin-bottom: 80px;
    overflow: scroll;
+}
+
+.gallery--withoutPadding {
+   margin-bottom: 0px;
 }
 
 .gallery::-webkit-scrollbar {
@@ -15,4 +31,8 @@
 .gallery__row {
    display: flex;
    width: fit-content;
+}
+
+hr {
+   border: 0.5px solid #282c34;
 }

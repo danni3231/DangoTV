@@ -14,8 +14,8 @@ const Header: React.FC<HeaderProps> = ({banner}) => {
          <div className="header__section">
             <img className="header__logo" src={logo} alt="" />
             <nav>
-               <NavLink text="Home" url="" active />
-               <NavLink text="News" url="" />
+               <NavLink text="Home" url="/Home" />
+               <NavLink text="Forms" url="/Forms" />
                <NavLink text="Studios" url="" />
                <NavLink text="Social" url="" />
             </nav>

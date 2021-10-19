@@ -1,6 +1,6 @@
 import React from "react";
+import {HashRouter, Route, Switch, Redirect} from "react-router-dom";
 import "./App.css";
-import Header from "../Header/Header";
 
 import AnimeElem, {AnimeCardProps} from "../AnimeCard/AnimeCard";
 import EpisodeElem, {EpisodeCardProps} from "../EpisodeCard/EpisodeCard";
@@ -8,7 +8,9 @@ import EpisodeElem, {EpisodeCardProps} from "../EpisodeCard/EpisodeCard";
 import coverJutjusu from "../../Data/AnimeCovers/jujutsu-kaisen-cover.png";
 import thumbnailJutjusu from "../../Data/Thumbnails/jujutsu/jujutsu_episode_1.jpg";
 import AnimeForm from "../AnimeForm/AnimeForm";
+
 import Title from "../Title/Title";
+import Header from "../Header/Header";
 
 type AnimeCardObj = AnimeCardProps & {
    id: number;
@@ -68,43 +70,48 @@ function App() {
    };
 
    return (
-      <div className="App">
+      <HashRouter>
          <Header />
-         <main className="Main">
-            <article className="Main__Content">
-               <Title text="Latest Episodes" url="" />
 
-               <section className="gallery">
-                  <div className="gallery__row">
-                     {episodeElems.map((elem) => {
-                        return (
-                           <EpisodeElem
-                              key={elem.id}
-                              anime={elem.anime}
-                              thumbnail={elem.thumbnail}
-                              number={elem.number}
-                           />
-                        );
-                     })}
-                  </div>
+         <Route path="/Home">
+            <article className="Main">
+               <section className="Main__Content">
+                  <Title text="Latest Episodes" url="" />
+
+                  <section className="gallery">
+                     <div className="gallery__row">
+                        {episodeElems.map((elem) => {
+                           return (
+                              <EpisodeElem
+                                 key={elem.id}
+                                 anime={elem.anime}
+                                 thumbnail={elem.thumbnail}
+                                 number={elem.number}
+                              />
+                           );
+                        })}
+                     </div>
+                  </section>
+
+                  <Title text="Latest Animes" url="" />
+
+                  <section className="gallery gallery--withoutPadding">
+                     <div className="gallery__row">
+                        {animeElems.map((elem) => {
+                           return <AnimeElem key={elem.id} name={elem.name} cover={elem.cover} />;
+                        })}
+                     </div>
+                  </section>
                </section>
-
-               <Title text="Latest Animes" url="" />
-
-               <section className="gallery">
-                  <div className="gallery__row">
-                     {animeElems.map((elem) => {
-                        return <AnimeElem key={elem.id} name={elem.name} cover={elem.cover} />;
-                     })}
-                  </div>
-               </section>
+               <hr />
+               <section className="Main__News"></section>
             </article>
-            <hr />
-            <article className="Main__News"></article>
+         </Route>
 
+         <Route path="/Forms">
             <AnimeForm onCreate={handleCreateAnime} />
-         </main>
-      </div>
+         </Route>
+      </HashRouter>
    );
 }
 

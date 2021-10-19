@@ -1,23 +1,18 @@
 import * as React from "react";
+import {NavLink as Rlink} from "react-router-dom";
 import "./NavLink.css";
 
 interface NavLinkProps {
-    text: string;
-    active?: boolean;
-    url: string;
+   text: string;
+   url: string;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ text, active, url }) => {
-    let className = "Link";
-    if (active) {
-        className += " Link--active";
-    }
-
-    return (
-        <a className={className} href={url}>
-            {text}
-        </a>
-    );
+const NavLink: React.FC<NavLinkProps> = ({text, url}) => {
+   return (
+      <Rlink className="Link" activeClassName="Link--active" to={url}>
+         {text}
+      </Rlink>
+   );
 };
 
 export default NavLink;

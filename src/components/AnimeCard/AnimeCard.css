@@ -1,42 +1,46 @@
 .AnimeCard {
-    width: 248px;
-    height: 351px;
-    border-radius: 15px;
-    position: relative;
-    margin-right: 40px;
+   width: 248px;
+   height: 351px;
+   border-radius: 15px;
+   position: relative;
+   margin-right: 40px;
 }
 
 .AnimeCard:hover {
-    cursor: pointer;
+   cursor: pointer;
 }
 
 .AnimeCard__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 15px;
 }
 
 .AnimeCard__figcaption {
-    width: 100%;
-    height: 60px;
-    padding: 8px;
-    background: rgba(14, 14, 44, 0.7);
-    border-radius: 0px 0px 15px 15px;
+   width: 100%;
+   height: 60px;
+   padding: 8px;
+   background: rgba(14, 14, 44, 0.7);
+   border-radius: 0px 0px 15px 15px;
 
-    position: absolute;
-    bottom: 0px;
+   position: absolute;
+   bottom: 0px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 135%;
+   color: #eceff3;
+}
 
-    text-align: center;
+.AnimeCard__figcaption p {
+   width: 100%;
 
-    color: #eceff3;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 16px;
+   line-height: 135%;
+
+   text-align: center;
 }
