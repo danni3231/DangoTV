@@ -1,56 +1,57 @@
 import * as React from "react";
 import "./AnimeForm.css";
 import {AnimeCardProps} from "../AnimeCard/AnimeCard";
+import {useHistory} from "react-router";
 
 interface AnimeFormProps {
-    onCreate: (newAnimeElem: AnimeCardProps) => void;
+   onCreate: (newAnimeElem: AnimeCardProps) => void;
 }
 
 const AnimeForm: React.FC<AnimeFormProps> = ({onCreate}) => {
-    const [formSubmitted, setFormSubmitted] = React.useState(false);
+   const history = useHistory();
 
-    const [name, setName] = React.useState("");
-    const handleNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        setName(event.target.value);
-    };
+   const [formSubmitted, setFormSubmitted] = React.useState(false);
 
-    const [url, setUrl] = React.useState("");
-    const handleUrlChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        setUrl(event.target.value);
-    };
+   const [name, setName] = React.useState("");
+   const handleNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+      setName(event.target.value);
+   };
 
-    const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event: any) => {
-        event.preventDefault();
-        setFormSubmitted(true);
-        //if (isTitleValid && isUrlValid) {
-        console.log("valid");
-        // si el formulario es válido, llamamos al evento onCreate
-        onCreate({
-            name: name,
-            cover: url,
-        });
-        /*}
-         else {
-            console.log("invalid");
-        }*/
-    };
+   const [url, setUrl] = React.useState("");
+   const handleUrlChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+      setUrl(event.target.value);
+   };
 
-    return (
-        <form className="AnimeForm" onSubmit={handleSubmit}>
-            <h2>Create animeCard</h2>
-            <label className="input">
-                name
-                <input type="text" onChange={handleNameChange} value={name} placeholder="Name" />
-            </label>
+   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event: any) => {
+      event.preventDefault();
+      setFormSubmitted(true);
+      //if (isTitleValid && isUrlValid) {
+      console.log("valid");
+      // si el formulario es válido, llamamos al evento onCreate
+      onCreate({
+         name: name,
+         cover: url,
+      });
 
-            <label className="input">
-                Image Url
-                <input type="text" onChange={handleUrlChange} value={url} placeholder="Image Url" />
-            </label>
+      history.push("/");
+   };
 
-            <button>Create</button>
-        </form>
-    );
+   return (
+      <form className="AnimeForm" onSubmit={handleSubmit}>
+         <h2>Create animeCard</h2>
+         <label className="input">
+            name
+            <input type="text" onChange={handleNameChange} value={name} placeholder="Name" />
+         </label>
+
+         <label className="input">
+            Image Url
+            <input type="text" onChange={handleUrlChange} value={url} placeholder="Image Url" />
+         </label>
+
+         <button>Create</button>
+      </form>
+   );
 };
 
 export default AnimeForm;
