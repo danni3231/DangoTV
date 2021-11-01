@@ -2,9 +2,10 @@ import * as React from "react";
 import "./AnimeForm.css";
 import {AnimeCardProps} from "../AnimeCard/AnimeCard";
 import {useHistory} from "react-router";
+import {AnimeObj} from "../../Types/AnimeObj";
 
 interface AnimeFormProps {
-   onCreate: (newAnimeElem: AnimeCardProps) => void;
+   onCreate: (newAnimeElem: AnimeObj) => void;
 }
 
 const AnimeForm: React.FC<AnimeFormProps> = ({onCreate}) => {
@@ -28,10 +29,16 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate}) => {
       //if (isTitleValid && isUrlValid) {
       console.log("valid");
       // si el formulario es válido, llamamos al evento onCreate
-      onCreate({
+      const anime: AnimeObj = {
+         id: Math.random(),
          name: name,
          cover: url,
-      });
+         description: "Something",
+         status: "Finish",
+         tags: ["Tag 1", "Tag 2", "Tag 3"],
+         episodes: [],
+      };
+      onCreate(anime);
 
       history.push("/");
    };

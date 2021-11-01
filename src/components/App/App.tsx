@@ -2,16 +2,19 @@ import React from "react";
 import {HashRouter, Route, Switch, Redirect} from "react-router-dom";
 import "./App.css";
 
-import AnimeElem, {AnimeCardProps} from "../AnimeCard/AnimeCard";
-import EpisodeElem, {EpisodeCardProps} from "../EpisodeCard/EpisodeCard";
+import {BannerObj} from "../../Types/BannerObj";
+import {AnimeObj} from "../../Types/AnimeObj";
+import {EpisodeObj} from "../../Types/EpisodeObj";
 
 import AnimeForm from "../AnimeForm/AnimeForm";
 import Title from "../Title/Title";
 import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
-import {BannerObj} from "../../Types/BannerObj";
-import {AnimeObj} from "../../Types/AnimeObj";
-import {EpisodeObj} from "../../Types/EpisodeObj";
+
+import AnimeView from "../AnimeView/AnimeView";
+import AnimeCard from "../AnimeCard/AnimeCard";
+import EpisodeCard from "../EpisodeCard/EpisodeCard";
+import Gallery from "../Gallery/Gallery";
 
 function App() {
    const animesBanner: BannerObj[] = [
@@ -46,11 +49,14 @@ function App() {
          id: Math.random(),
          name: "Jujutsu Kaisen",
          cover: `${process.env.PUBLIC_URL}/images/Covers/jujutsu-kaisen-cover.png`,
-         episodes: [episodeElems[0]],
+         description: "Something",
+         status: "Finish",
+         tags: ["Tag 1", "Tag 2", "Tag 3"],
+         episodes: [episodeElems[0], episodeElems[0], episodeElems[0]],
       },
    ]);
 
-   const handleCreateAnime = (newAnimeElem: AnimeCardProps) => {
+   const handleCreateAnime = (newAnimeElem: AnimeObj) => {
       console.log("nuevo elemento!", newAnimeElem);
       // creamos un nuevo arreglo
       const arrayCopy = [
@@ -60,13 +66,16 @@ function App() {
             id: Math.random(),
             name: newAnimeElem.name,
             cover: `${process.env.PUBLIC_URL}/images/Covers/jujutsu-kaisen-cover.png`,
-            episodes: [episodeElems[0]],
+            description: "Something",
+            status: "Finish",
+            tags: ["Tag 1", "Tag 2", "Tag 3"],
+            episodes: [],
          },
       ];
       setAnimeElems(arrayCopy);
    };
 
-   const handleCreateEpisode = (newEpisodeElem: EpisodeCardProps) => {
+   const handleCreateEpisode = (newEpisodeElem: EpisodeObj) => {
       console.log("nuevo elemento!", newEpisodeElem);
       // creamos un nuevo arreglo
       const arrayCopy = [
@@ -74,7 +83,7 @@ function App() {
          {
             // agregamos el nuevo elemento con la información recibida
             id: Math.random(),
-            animeName: newEpisodeElem.anime,
+            animeName: newEpisodeElem.animeName,
             thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
             number: 1,
          },
@@ -93,34 +102,19 @@ function App() {
                   <section className="Main__Content">
                      <Title text="Latest Episodes" url="" />
 
-                     <section className="gallery">
-                        <div className="gallery__row">
-                           {episodeElems.map((elem) => {
-                              return (
-                                 <EpisodeElem
-                                    key={elem.id}
-                                    anime={elem.animeName}
-                                    thumbnail={elem.thumbnail}
-                                    number={elem.number}
-                                 />
-                              );
-                           })}
-                        </div>
-                     </section>
+                     <Gallery type="Episode" listEpisode={episodeElems} />
 
                      <Title text="Latest Animes" url="" />
 
-                     <section className="gallery gallery--withoutPadding">
-                        <div className="gallery__row">
-                           {animeElems.map((elem) => {
-                              return <AnimeElem key={elem.id} name={elem.name} cover={elem.cover} />;
-                           })}
-                        </div>
-                     </section>
+                     <Gallery type="Anime" listAnime={animeElems} withoutPadding />
                   </section>
                   <hr />
                   <section className="Main__News"></section>
                </article>
+            </Route>
+
+            <Route path="/anime-details/:id">
+               <AnimeView list={animeElems} />
             </Route>
 
             <Route path="/Forms">

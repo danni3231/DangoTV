@@ -1,0 +1,22 @@
+.gallery {
+   width: 100%;
+   margin-bottom: 80px;
+   overflow: scroll;
+}
+
+.gallery--withoutPadding {
+   margin-bottom: 0px;
+}
+
+.gallery::-webkit-scrollbar {
+   display: none;
+}
+
+.gallery__row {
+   display: flex;
+   width: fit-content;
+}
+
+hr {
+   border: 0.5px solid #282c34;
+}
