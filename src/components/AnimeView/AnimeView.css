@@ -1,6 +1,56 @@
 .AnimeView {
+   padding: 80px;
 }
 
 .AnimeView__Info {
    display: flex;
+   margin-bottom: 80px;
+}
+
+.AnimeView__Image {
+   width: 248px;
+   height: 351px;
+   border-radius: 15px;
+   margin-right: 40px;
+}
+
+.AnimeView__Name {
+   margin-bottom: 16px;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 36px;
+}
+
+.AnimeView__Tags {
+   display: flex;
+}
+
+.AnimeView__Tag {
+   background-color: #c678dd;
+   border-radius: 16px;
+   margin-right: 8px;
+   margin-bottom: 16px;
+   padding: 4px 8px;
+
+   color: #fff;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 12px;
+}
+
+.AnimeView__Description {
+   width: 800px;
+   margin-bottom: 16px;
+
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+}
+
+.AnimeView__Status {
+   color: #c678dd;
+
+   font-style: normal;
+   font-weight: bold;
+   font-size: 18px;
 }

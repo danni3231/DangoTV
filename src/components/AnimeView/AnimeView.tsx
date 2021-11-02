@@ -2,7 +2,6 @@ import * as React from "react";
 import "./AnimeView.css";
 import {Redirect, useParams} from "react-router";
 import {AnimeObj} from "../../Types/AnimeObj";
-import EpisodeCard from "../EpisodeCard/EpisodeCard";
 import Title from "../Title/Title";
 import Gallery from "../Gallery/Gallery";
 
@@ -35,7 +34,11 @@ const AnimeView: React.FC<AnimeViewProps> = ({list}) => {
                <p className="AnimeView__Name">{elem.name}</p>
                <div className="AnimeView__Tags">
                   {elem.tags.map((tag, i) => {
-                     return <div key={i}>{tag}</div>;
+                     return (
+                        <div className="AnimeView__Tag" key={i}>
+                           {tag}
+                        </div>
+                     );
                   })}
                </div>
                <p className="AnimeView__Description">{elem.description}</p>

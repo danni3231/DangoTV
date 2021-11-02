@@ -10,10 +10,7 @@ import AnimeForm from "../AnimeForm/AnimeForm";
 import Title from "../Title/Title";
 import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
-
 import AnimeView from "../AnimeView/AnimeView";
-import AnimeCard from "../AnimeCard/AnimeCard";
-import EpisodeCard from "../EpisodeCard/EpisodeCard";
 import Gallery from "../Gallery/Gallery";
 
 function App() {
@@ -49,9 +46,12 @@ function App() {
          id: Math.random(),
          name: "Jujutsu Kaisen",
          cover: `${process.env.PUBLIC_URL}/images/Covers/jujutsu-kaisen-cover.png`,
-         description: "Something",
+         description: `Yuji Itadori is a boy with tremendous physical strength, though he lives a completely ordinary high school life. 
+               One day, to save a classmate who has been attacked by curses, he eats the finger of Ryomen Sukuna, taking the curse into his own soul. 
+               From then on, he shares one body with Ryomen Sukuna. Guided by the most powerful of sorcerers, Satoru Gojo, Itadori is admitted to Tokyo Jujutsu High School, 
+               an organization that fights the curses... and thus begins the heroic tale of a boy who became a curse to exorcise a curse, a life from which he could never turn back.`,
          status: "Finish",
-         tags: ["Tag 1", "Tag 2", "Tag 3"],
+         tags: ["Action", "Shonen", "Supernatural"],
          episodes: [episodeElems[0], episodeElems[0], episodeElems[0]],
       },
    ]);
@@ -61,16 +61,7 @@ function App() {
       // creamos un nuevo arreglo
       const arrayCopy = [
          ...animeElems, // ponemos todos los elementos que ya existían
-         {
-            // agregamos el nuevo elemento con la información recibida
-            id: Math.random(),
-            name: newAnimeElem.name,
-            cover: `${process.env.PUBLIC_URL}/images/Covers/jujutsu-kaisen-cover.png`,
-            description: "Something",
-            status: "Finish",
-            tags: ["Tag 1", "Tag 2", "Tag 3"],
-            episodes: [],
-         },
+         newAnimeElem,
       ];
       setAnimeElems(arrayCopy);
    };
