@@ -28,8 +28,8 @@ const Gallery: React.FC<GalleryProps> = ({type, listAnime, listEpisode, withoutP
                     );
                  })
                : type === "Anime" && listAnime !== undefined
-               ? listAnime.map((Anime) => {
-                    return <AnimeCard id={Anime.id} name={Anime.name} cover={Anime.cover} />;
+               ? listAnime.map((anime) => {
+                    return <AnimeCard key={anime.id} id={anime.id} name={anime.name} cover={anime.cover} />;
                  })
                : "Error no se cargo la vista previa"}
          </div>

@@ -12,6 +12,9 @@ import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
 import AnimeView from "../AnimeView/AnimeView";
 import Gallery from "../Gallery/Gallery";
+import {TagOption} from "../../Types/TagOption";
+import {ThemeProvider} from "@emotion/react";
+import {theme} from "../../utils/Theme";
 
 function App() {
    const animesBanner: BannerObj[] = [
@@ -52,9 +55,19 @@ function App() {
                an organization that fights the curses... and thus begins the heroic tale of a boy who became a curse to exorcise a curse, a life from which he could never turn back.`,
          status: "Finish",
          tags: ["Action", "Shonen", "Supernatural"],
-         episodes: [episodeElems[0], episodeElems[0], episodeElems[0]],
+         episodes: [episodeElems[0]],
       },
    ]);
+
+   const [tagOptions, setTagOptions] = React.useState<TagOption[]>([
+      {label: "test 1"},
+      {label: "test 2"},
+      {label: "Animals"},
+   ]);
+
+   const handleAddTagOption = (newTagOption: TagOption) => {
+      setTagOptions([...tagOptions, newTagOption]);
+   };
 
    const handleCreateAnime = (newAnimeElem: AnimeObj) => {
       console.log("nuevo elemento!", newAnimeElem);
@@ -83,38 +96,40 @@ function App() {
    };
 
    return (
-      <HashRouter>
-         <Header />
+      <ThemeProvider theme={theme}>
+         <HashRouter>
+            <Header />
 
-         <Switch>
-            <Route exact path="/">
-               <Banner animeList={animesBanner} />
-               <article className="Main">
-                  <section className="Main__Content">
-                     <Title text="Latest Episodes" url="" />
+            <Switch>
+               <Route exact path="/">
+                  <Banner animeList={animesBanner} />
+                  <article className="Main">
+                     <section className="Main__Content">
+                        <Title text="Latest Episodes" url="" />
 
-                     <Gallery type="Episode" listEpisode={episodeElems} />
+                        <Gallery type="Episode" listEpisode={episodeElems} />
 
-                     <Title text="Latest Animes" url="" />
+                        <Title text="Latest Animes" url="" />
 
-                     <Gallery type="Anime" listAnime={animeElems} withoutPadding />
-                  </section>
-                  <hr />
-                  <section className="Main__News"></section>
-               </article>
-            </Route>
+                        <Gallery type="Anime" listAnime={animeElems} withoutPadding />
+                     </section>
+                     <hr />
+                     <section className="Main__News"></section>
+                  </article>
+               </Route>
 
-            <Route path="/anime-details/:id">
-               <AnimeView list={animeElems} />
-            </Route>
+               <Route path="/anime-details/:id">
+                  <AnimeView list={animeElems} />
+               </Route>
 
-            <Route path="/Forms">
-               <AnimeForm onCreate={handleCreateAnime} />
-            </Route>
+               <Route path="/Forms">
+                  <AnimeForm onCreate={handleCreateAnime} tagOptions={tagOptions} addTagOption={handleAddTagOption} />
+               </Route>
 
-            <Route path="/Studios"></Route>
-         </Switch>
-      </HashRouter>
+               <Route path="/Studios"></Route>
+            </Switch>
+         </HashRouter>
+      </ThemeProvider>
    );
 }
 

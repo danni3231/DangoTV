@@ -6,7 +6,7 @@ export type AnimeObj = {
    cover: string;
    description: string;
    tags: string[];
-   status: "Finish" | "In Broadcast";
+   status: string;
 
    episodes: EpisodeObj[];
 };

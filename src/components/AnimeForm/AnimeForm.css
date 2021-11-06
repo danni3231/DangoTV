@@ -1,58 +1,106 @@
+.AnimeForm {
+   width: 600px;
+   padding: 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border: 1px solid #282c34;
+   border-radius: 16px;
+   color: #282c34;
+}
+
 .AnimeForm h2 {
-    margin-bottom: 20px;
+   margin-bottom: 20px;
+}
+
+.AnimeForm__Status {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.AnimeForm__Status p {
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
+}
+
+.AnimeForm__Status__inputContainer {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
 }
 
 .input {
-    display: block;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
 
-    color: #282c34;
-    margin-bottom: 32px;
+   color: #282c34;
+   margin-bottom: 32px;
 }
 
-.input input {
-    display: block;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 135%;
-    margin-top: 12px;
+.input input,
+.input textarea {
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+   line-height: 135%;
+   margin-top: 12px;
 
-    color: #282c34;
-    padding: 12px;
+   color: #282c34;
+   padding: 12px;
 
-    border: 1px solid #282c34;
-    box-sizing: border-box;
-    border-radius: 10px;
-    outline: none;
+   border: 1px solid #282c34;
+   border-radius: 10px;
+   outline: none;
 }
 
-.input input:focus-visible {
-    color: #282c34;
-    border: 2px solid #c678dd;
+.input input:focus-visible,
+.input textarea:focus-visible {
+   color: #282c34;
+   border: 2px solid #c678dd;
+}
+
+.input--radio {
+   display: flex;
+   align-items: center;
+}
+
+.input--radio input {
+   margin-right: 8px;
+   width: 16px;
+   height: 16px;
 }
 
 button {
-    min-width: 140px;
-    height: 48px;
-    padding: 8px;
-    background: #282c34;
-    border-radius: 30px;
-    outline: none;
-    border: none;
+   min-width: 140px;
+   height: 48px;
+   padding: 8px;
+   background: #282c34;
+   border-radius: 30px;
+   outline: none;
+   border: none;
 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 135%;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+   line-height: 135%;
 
-    color: #eceff3;
+   color: #eceff3;
 }
 
 button:hover {
-    filter: brightness(140%);
-    box-shadow: 0px 4px 4px rgba(40, 44, 52, 0.25);
+   filter: brightness(140%);
+   box-shadow: 0px 4px 4px rgba(40, 44, 52, 0.25);
+}
+
+.autocomplete {
+   border-radius: 10px;
 }
