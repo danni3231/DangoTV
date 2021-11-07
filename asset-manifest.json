@@ -1,25 +1,22 @@
 {
   "files": {
-    "main.css": "/DangoTV/static/css/main.a19bac27.chunk.css",
-    "main.js": "/DangoTV/static/js/main.c86d4deb.chunk.js",
-    "main.js.map": "/DangoTV/static/js/main.c86d4deb.chunk.js.map",
-    "runtime-main.js": "/DangoTV/static/js/runtime-main.b5b27fe9.js",
-    "runtime-main.js.map": "/DangoTV/static/js/runtime-main.b5b27fe9.js.map",
-    "static/js/2.50140eb3.chunk.js": "/DangoTV/static/js/2.50140eb3.chunk.js",
-    "static/js/2.50140eb3.chunk.js.map": "/DangoTV/static/js/2.50140eb3.chunk.js.map",
-    "static/js/3.7ad32e21.chunk.js": "/DangoTV/static/js/3.7ad32e21.chunk.js",
-    "static/js/3.7ad32e21.chunk.js.map": "/DangoTV/static/js/3.7ad32e21.chunk.js.map",
+    "main.css": "/DangoTV/static/css/main.dbf576ba.chunk.css",
+    "main.js": "/DangoTV/static/js/main.f9f47bdb.chunk.js",
+    "main.js.map": "/DangoTV/static/js/main.f9f47bdb.chunk.js.map",
+    "runtime-main.js": "/DangoTV/static/js/runtime-main.297db76c.js",
+    "runtime-main.js.map": "/DangoTV/static/js/runtime-main.297db76c.js.map",
+    "static/js/2.d196a8fe.chunk.js": "/DangoTV/static/js/2.d196a8fe.chunk.js",
+    "static/js/2.d196a8fe.chunk.js.map": "/DangoTV/static/js/2.d196a8fe.chunk.js.map",
+    "static/js/3.c2cb2bda.chunk.js": "/DangoTV/static/js/3.c2cb2bda.chunk.js",
+    "static/js/3.c2cb2bda.chunk.js.map": "/DangoTV/static/js/3.c2cb2bda.chunk.js.map",
     "index.html": "/DangoTV/index.html",
-    "static/css/main.a19bac27.chunk.css.map": "/DangoTV/static/css/main.a19bac27.chunk.css.map",
-    "static/js/2.50140eb3.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.50140eb3.chunk.js.LICENSE.txt",
-    "static/media/jujutsu-kaisen-cover.49a2eef2.png": "/DangoTV/static/media/jujutsu-kaisen-cover.49a2eef2.png",
-    "static/media/jujutsu_episode_1.3cacf505.jpg": "/DangoTV/static/media/jujutsu_episode_1.3cacf505.jpg",
-    "static/media/logo.172c94f6.svg": "/DangoTV/static/media/logo.172c94f6.svg"
+    "static/css/main.dbf576ba.chunk.css.map": "/DangoTV/static/css/main.dbf576ba.chunk.css.map",
+    "static/js/2.d196a8fe.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.d196a8fe.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b5b27fe9.js",
-    "static/js/2.50140eb3.chunk.js",
-    "static/css/main.a19bac27.chunk.css",
-    "static/js/main.c86d4deb.chunk.js"
+    "static/js/runtime-main.297db76c.js",
+    "static/js/2.d196a8fe.chunk.js",
+    "static/css/main.dbf576ba.chunk.css",
+    "static/js/main.f9f47bdb.chunk.js"
   ]
 }
