@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/DangoTV/static/css/main.dbf576ba.chunk.css",
-    "main.js": "/DangoTV/static/js/main.f9f47bdb.chunk.js",
-    "main.js.map": "/DangoTV/static/js/main.f9f47bdb.chunk.js.map",
+    "main.css": "/DangoTV/static/css/main.0def8624.chunk.css",
+    "main.js": "/DangoTV/static/js/main.111ff603.chunk.js",
+    "main.js.map": "/DangoTV/static/js/main.111ff603.chunk.js.map",
     "runtime-main.js": "/DangoTV/static/js/runtime-main.297db76c.js",
     "runtime-main.js.map": "/DangoTV/static/js/runtime-main.297db76c.js.map",
     "static/js/2.d196a8fe.chunk.js": "/DangoTV/static/js/2.d196a8fe.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.c2cb2bda.chunk.js": "/DangoTV/static/js/3.c2cb2bda.chunk.js",
     "static/js/3.c2cb2bda.chunk.js.map": "/DangoTV/static/js/3.c2cb2bda.chunk.js.map",
     "index.html": "/DangoTV/index.html",
-    "static/css/main.dbf576ba.chunk.css.map": "/DangoTV/static/css/main.dbf576ba.chunk.css.map",
+    "static/css/main.0def8624.chunk.css.map": "/DangoTV/static/css/main.0def8624.chunk.css.map",
     "static/js/2.d196a8fe.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.d196a8fe.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.297db76c.js",
     "static/js/2.d196a8fe.chunk.js",
-    "static/css/main.dbf576ba.chunk.css",
-    "static/js/main.f9f47bdb.chunk.js"
+    "static/css/main.0def8624.chunk.css",
+    "static/js/main.111ff603.chunk.js"
   ]
 }
