@@ -1,38 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+}
+
+hr {
+   border: 0.5px solid #c678dd;
 }
 
 /* Rules for sizing the icon. */
 .md-18 {
-    font-size: 18px;
+   font-size: 18px;
 }
 .md-24 {
-    font-size: 24px;
+   font-size: 24px;
 }
 .md-36 {
-    font-size: 36px;
+   font-size: 36px;
 }
 .md-48 {
-    font-size: 48px;
+   font-size: 48px;
 }
 
 /* Rules for using icons as black on a light background. */
 .md-dark {
-    color: rgba(40, 44, 52, 0.54);
+   color: rgba(40, 44, 52, 0.54);
 }
 .md-dark-inactive {
-    color: rgba(40, 44, 52, 0.26);
+   color: rgba(40, 44, 52, 0.26);
 }
 
 /* Rules for using icons as white on a dark background. */
 .md-light {
-    color: rgba(236, 239, 243, 1);
+   color: rgba(236, 239, 243, 1);
 }
 .md-light-inactive {
-    color: rgba(236, 239, 243, 0.3);
+   color: rgba(236, 239, 243, 0.3);
 }

@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./AnimeForm.css";
 import {useHistory} from "react-router";
-import {AnimeObj} from "../../Types/AnimeObj";
-import {Autocomplete, makeStyles, TextField} from "@mui/material";
-import {TagOption} from "../../Types/TagOption";
+import {AnimeObj} from "../../../Types/AnimeObj";
+import {Autocomplete, TextField} from "@mui/material";
+import {TagOption} from "../../../Types/TagOption";
 
 interface AnimeFormProps {
    tagOptions: TagOption[];

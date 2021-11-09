@@ -1,6 +1,10 @@
 export type EpisodeObj = {
    id: number;
    animeName: string;
-   thumbnail: string;
+   name: string;
    number: number;
+   description: string;
+   date: string;
+   thumbnail: string;
+   videoUrl: string;
 };

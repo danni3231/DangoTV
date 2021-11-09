@@ -2,8 +2,8 @@ import * as React from "react";
 import "./Gallery.css";
 import {AnimeObj} from "../../Types/AnimeObj";
 import {EpisodeObj} from "../../Types/EpisodeObj";
-import AnimeCard from "../AnimeCard/AnimeCard";
-import EpisodeCard from "../EpisodeCard/EpisodeCard";
+import AnimeCard from "../AnimeComponents/AnimeCard/AnimeCard";
+import EpisodeCard from "../EpisodeComponents/EpisodeCard/EpisodeCard";
 
 interface GalleryProps {
    type: "Anime" | "Episode";
@@ -21,6 +21,7 @@ const Gallery: React.FC<GalleryProps> = ({type, listAnime, listEpisode, withoutP
                     return (
                        <EpisodeCard
                           key={episode.id}
+                          id={episode.id}
                           anime={episode.animeName}
                           thumbnail={episode.thumbnail}
                           number={episode.number}

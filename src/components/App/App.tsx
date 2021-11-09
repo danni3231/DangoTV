@@ -6,15 +6,16 @@ import {BannerObj} from "../../Types/BannerObj";
 import {AnimeObj} from "../../Types/AnimeObj";
 import {EpisodeObj} from "../../Types/EpisodeObj";
 
-import AnimeForm from "../AnimeForm/AnimeForm";
+import AnimeForm from "../Forms/AnimeForm/AnimeForm";
 import Title from "../Title/Title";
 import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
-import AnimeView from "../AnimeView/AnimeView";
+import AnimeView from "../AnimeComponents/AnimeView/AnimeView";
 import Gallery from "../Gallery/Gallery";
 import {TagOption} from "../../Types/TagOption";
 import {ThemeProvider} from "@emotion/react";
 import {theme} from "../../utils/Theme";
+import EpisodeView from "../EpisodeComponents/EpisodeView/EpisodeView";
 
 function App() {
    const animesBanner: BannerObj[] = [
@@ -39,8 +40,14 @@ function App() {
       {
          id: Math.random(),
          animeName: "Jujutsu Kaisen",
-         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
          number: 1,
+         name: "Ryomen Sukuna",
+         description:
+            "Yuuji es un joven que posee un talismán muy poderoso y él ni siquiera es consciente de ello. Pero un día se topa con Fushiguro y su vida dará un cambio radical.",
+         date: "Oct 2, 2020",
+         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
+         videoUrl:
+            "https://rr3---sn-hp57kn67.c.drive.google.com/videoplayback?expire=1636441477&amp;ei=ReWJYdKiBsCR2LYPgqWm-A0&amp;ip=190.66.117.4&amp;cp=QVRIWEVfUFRVSFhPOko5aGI0dUpuTF9UcU4xdDFCZ3l6YzNqbGt6UklZdmp4VlRFVi1hcWVvams&amp;id=c15bc0e70b53e3d0&amp;itag=22&amp;source=webdrive&amp;requiressl=yes&amp;mh=dl&amp;mm=32&amp;mn=sn-hp57kn67&amp;ms=su&amp;mv=m&amp;mvi=3&amp;pl=20&amp;ttl=transient&amp;susc=dr&amp;driveid=15mi9p2nT10lqj9qJEPHwhnFsGV0U9ohO&amp;app=explorer&amp;mime=video/mp4&amp;vprv=1&amp;prv=1&amp;dur=1428.096&amp;lmt=1612577164086338&amp;mt=1636426821&amp;sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&amp;sig=AOq0QJ8wRgIhAKqRvzG-y_u--XUKyTf4LtqmxfZVEvFcTuD7hzHngPNLAiEA0lqREEVIT0V7jc72ERydv-5caIOZZstvD7zGW-Q5bms=&amp;lsparams=mh,mm,mn,ms,mv,mvi,pl&amp;lsig=AG3C_xAwRAIgERrh-ER7zFYNJsSX583IK8ejVewOAek3SZveW0j_F8QCIFlNfWIJ2o7kgKdu-88Uhtbyz-QbUwOvZm97C_VKykLw&amp;cpn=wlGgmS0mhZD_CWoo&amp;c=WEB_EMBEDDED_PLAYER&amp;cver=1.20211107.00.00",
       },
    ]);
 
@@ -84,13 +91,7 @@ function App() {
       // creamos un nuevo arreglo
       const arrayCopy = [
          ...episodeElems, // ponemos todos los elementos que ya existían
-         {
-            // agregamos el nuevo elemento con la información recibida
-            id: Math.random(),
-            animeName: newEpisodeElem.animeName,
-            thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
-            number: 1,
-         },
+         newEpisodeElem,
       ];
       setEpisodeElems(arrayCopy);
    };
@@ -120,6 +121,10 @@ function App() {
 
                <Route path="/anime-details/:id">
                   <AnimeView list={animeElems} />
+               </Route>
+
+               <Route path="/episode-details/:id">
+                  <EpisodeView list={episodeElems} />
                </Route>
 
                <Route path="/Forms">

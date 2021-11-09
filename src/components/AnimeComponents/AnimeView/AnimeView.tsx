@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./AnimeView.css";
 import {Redirect, useParams} from "react-router";
-import {AnimeObj} from "../../Types/AnimeObj";
-import Title from "../Title/Title";
-import Gallery from "../Gallery/Gallery";
+import {AnimeObj} from "../../../Types/AnimeObj";
+import Title from "../../Title/Title";
+import Gallery from "../../Gallery/Gallery";
 
 interface AnimeViewProps {
    list: AnimeObj[];
