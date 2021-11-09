@@ -46,8 +46,29 @@ function App() {
             "Yuuji es un joven que posee un talismán muy poderoso y él ni siquiera es consciente de ello. Pero un día se topa con Fushiguro y su vida dará un cambio radical.",
          date: "Oct 2, 2020",
          thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
-         videoUrl:
-            "https://rr3---sn-hp57kn67.c.drive.google.com/videoplayback?expire=1636441477&amp;ei=ReWJYdKiBsCR2LYPgqWm-A0&amp;ip=190.66.117.4&amp;cp=QVRIWEVfUFRVSFhPOko5aGI0dUpuTF9UcU4xdDFCZ3l6YzNqbGt6UklZdmp4VlRFVi1hcWVvams&amp;id=c15bc0e70b53e3d0&amp;itag=22&amp;source=webdrive&amp;requiressl=yes&amp;mh=dl&amp;mm=32&amp;mn=sn-hp57kn67&amp;ms=su&amp;mv=m&amp;mvi=3&amp;pl=20&amp;ttl=transient&amp;susc=dr&amp;driveid=15mi9p2nT10lqj9qJEPHwhnFsGV0U9ohO&amp;app=explorer&amp;mime=video/mp4&amp;vprv=1&amp;prv=1&amp;dur=1428.096&amp;lmt=1612577164086338&amp;mt=1636426821&amp;sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&amp;sig=AOq0QJ8wRgIhAKqRvzG-y_u--XUKyTf4LtqmxfZVEvFcTuD7hzHngPNLAiEA0lqREEVIT0V7jc72ERydv-5caIOZZstvD7zGW-Q5bms=&amp;lsparams=mh,mm,mn,ms,mv,mvi,pl&amp;lsig=AG3C_xAwRAIgERrh-ER7zFYNJsSX583IK8ejVewOAek3SZveW0j_F8QCIFlNfWIJ2o7kgKdu-88Uhtbyz-QbUwOvZm97C_VKykLw&amp;cpn=wlGgmS0mhZD_CWoo&amp;c=WEB_EMBEDDED_PLAYER&amp;cver=1.20211107.00.00",
+         videoUrl: "https://drive.google.com/file/d/15mi9p2nT10lqj9qJEPHwhnFsGV0U9ohO/preview",
+      },
+      {
+         id: Math.random(),
+         animeName: "Jujutsu Kaisen",
+         number: 2,
+         name: "Por mí",
+         description:
+            "El hecho de comerse el dedo de Sukuna le supondrá un grave problema a Yuuji, puesto que ahora tienen que ejecutarlo. Pero tiene un modo temporal de salvarse.",
+         date: "Oct 9, 2020",
+         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_2.jpg`,
+         videoUrl: "https://drive.google.com/file/d/14tAZoa0yUvWWSKZVlB10SDZ3cvwR3gdn/preview",
+      },
+      {
+         id: Math.random(),
+         animeName: "Jujutsu Kaisen",
+         number: 3,
+         name: "Chica de acero",
+         description:
+            "Yuuji deberá demostrar que es apto para formar parte de la Preparatoria de Hechicería. Además, conocerán a la tercera integrante del equipo.",
+         date: "Oct 16, 2020",
+         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_3.jpg`,
+         videoUrl: "https://drive.google.com/file/d/1zOoi8-LnWdqh3WgsMrRDsLLri3H3CB9D/preview",
       },
    ]);
 

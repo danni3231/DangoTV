@@ -144,7 +144,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
                }}
             />
 
-            <button>Create</button>
+            <button className="Btn">Create</button>
          </form>
       </section>
    );
