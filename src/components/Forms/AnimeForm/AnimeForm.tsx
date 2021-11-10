@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./AnimeForm.css";
 import {useHistory} from "react-router";
 import {AnimeObj} from "../../../Types/AnimeObj";
 import {Autocomplete, TextField} from "@mui/material";
@@ -88,7 +87,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
 
    return (
       <section>
-         <form className="AnimeForm" onSubmit={handleSubmit}>
+         <form className="Form" onSubmit={handleSubmit}>
             <h2>Create AnimeObj</h2>
             <label className="input">
                Name
@@ -111,10 +110,10 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
                />
             </label>
 
-            <div className="AnimeForm__Status">
+            <div className="Form__Status">
                <p>Status</p>
 
-               <div className="AnimeForm__Status__inputContainer">
+               <div className="Form__Status__inputContainer">
                   <div className="input--radio">
                      <input type="radio" name="status" value="Finish" onChange={handleStatusChange} />
                      <label>Finish</label>
@@ -145,7 +144,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
                }}
             />
 
-            <button className="Btn">Create</button>
+            <button className="Btn">Create Anime</button>
          </form>
       </section>
    );

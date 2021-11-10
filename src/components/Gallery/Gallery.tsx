@@ -18,15 +18,7 @@ const Gallery: React.FC<GalleryProps> = ({type, listAnime, listEpisode, withoutP
          <div className="gallery__row">
             {type === "Episode" && listEpisode !== undefined
                ? listEpisode.map((episode) => {
-                    return (
-                       <EpisodeCard
-                          key={episode.id}
-                          id={episode.id}
-                          anime={episode.animeName}
-                          thumbnail={episode.thumbnail}
-                          number={episode.number}
-                       />
-                    );
+                    return <EpisodeCard key={episode.id} episode={episode} />;
                  })
                : type === "Anime" && listAnime !== undefined
                ? listAnime.map((anime) => {

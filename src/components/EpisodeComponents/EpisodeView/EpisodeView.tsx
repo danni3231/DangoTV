@@ -29,7 +29,7 @@ const EpisodeView: React.FC<EpisodeViewProps> = ({list}) => {
             <div className="EpisodeView__Info">
                <img src={elem.thumbnail} alt="" />
                <div className="EpisodeView__Data">
-                  <p className="EpisodeView__Anime">{elem.animeName}</p>
+                  <p className="EpisodeView__Anime">{elem.anime?.name}</p>
                   <p className="EpisodeView__Name">"{elem.name}"</p>
                   <p className="EpisodeView__Description">{elem.description}</p>
                   <p className="EpisodeView__Date">{elem.date}</p>

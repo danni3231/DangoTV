@@ -41,6 +41,8 @@ hr {
    color: rgba(236, 239, 243, 0.3);
 }
 
+/* Btn Styles */
+
 .Btn {
    min-width: 140px;
    height: 48px;
@@ -103,4 +105,91 @@ hr {
 
 .clickable {
    cursor: pointer;
+}
+
+/* forms style */
+
+.Form {
+   width: 600px;
+   padding: 80px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border: 1px solid #282c34;
+   border-radius: 16px;
+   color: #282c34;
+}
+
+.Form h2 {
+   margin-bottom: 20px;
+}
+
+.Form__Status {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.Form__Status p {
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
+}
+
+.Form__Status__inputContainer {
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+}
+
+.input {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
+
+   color: #282c34;
+   margin-bottom: 32px;
+}
+
+.input input,
+.input textarea {
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+   line-height: 135%;
+   margin-top: 12px;
+
+   color: #282c34;
+   padding: 12px;
+
+   border: 1px solid #282c34;
+   border-radius: 10px;
+   outline: none;
+}
+
+.input input:focus-visible,
+.input textarea:focus-visible {
+   color: #282c34;
+   border: 2px solid #c678dd;
+}
+
+.input--radio {
+   display: flex;
+   align-items: center;
+}
+
+.input--radio input {
+   margin-right: 8px;
+   width: 16px;
+   height: 16px;
+}
+
+.autocomplete {
+   border-radius: 10px;
 }

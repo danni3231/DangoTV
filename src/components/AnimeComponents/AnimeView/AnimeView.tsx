@@ -1,16 +1,23 @@
 import * as React from "react";
 import "./AnimeView.css";
-import {Redirect, useHistory, useParams} from "react-router";
+import {Redirect, useHistory, useParams, Route} from "react-router";
+
 import {AnimeObj} from "../../../Types/AnimeObj";
+import {studioOption} from "../../../Types/StudiosOption";
+import {EpisodeObj} from "../../../Types/EpisodeObj";
+
 import Title from "../../Title/Title";
 import Gallery from "../../Gallery/Gallery";
-import {StudioObj} from "../../../Types/StudioObj";
+import EpisodeForm from "../../Forms/EpisodeForm/EpisodeForm";
+import NavLink from "../../Header/NavLink/NavLink";
 
 interface AnimeViewProps {
    list: AnimeObj[];
+   studioOptions: studioOption[];
+   onCreateEpisode: (AnimeId: number, newEpisodeElem: EpisodeObj, studioId: number) => void;
 }
 
-const AnimeView: React.FC<AnimeViewProps> = ({list}) => {
+const AnimeView: React.FC<AnimeViewProps> = ({list, studioOptions, onCreateEpisode}) => {
    const {id: idString} = useParams<{id: string}>();
    const id = parseFloat(idString);
 
@@ -18,6 +25,10 @@ const AnimeView: React.FC<AnimeViewProps> = ({list}) => {
 
    const handleViewStudio = (id: number) => () => {
       history.push(`/studio-details/${id}`);
+   };
+
+   const handleCreateEpisodeElem = (newEpisodeElem: EpisodeObj, studioId: number) => {
+      onCreateEpisode(id, newEpisodeElem, studioId);
    };
 
    const elem = list.find((elem) => {
@@ -66,7 +77,12 @@ const AnimeView: React.FC<AnimeViewProps> = ({list}) => {
          <section className="AnimeView__Episodes">
             <Title text="Episodes" url={""}></Title>
             <Gallery type="Episode" listEpisode={elem.episodes} withoutPadding />
+            <NavLink url={`/anime-details/${id}/new-episode`} text="Add Episode" />
          </section>
+
+         <Route path="/anime-details/:id/new-episode">
+            <EpisodeForm onCreate={handleCreateEpisodeElem} studioOptions={studioOptions} />
+         </Route>
       </article>
    );
 };

@@ -20,6 +20,7 @@ import EpisodeView from "../EpisodeComponents/EpisodeView/EpisodeView";
 import {ThemeProvider} from "@emotion/react";
 import {theme} from "../../utils/Theme";
 import StudioView from "../StudioView/StudioView";
+import {studioOption} from "../../Types/StudiosOption";
 
 function App() {
    const animesBanner: BannerObj[] = [
@@ -40,42 +41,6 @@ function App() {
       },
    ];
 
-   const [episodeElems, setEpisodeElems] = React.useState<EpisodeObj[]>([
-      {
-         id: 0,
-         animeName: "Jujutsu Kaisen",
-         number: 1,
-         name: "Ryomen Sukuna",
-         description:
-            "Yuuji es un joven que posee un talismán muy poderoso y él ni siquiera es consciente de ello. Pero un día se topa con Fushiguro y su vida dará un cambio radical.",
-         date: "Oct 2, 2020",
-         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
-         videoUrl: "https://drive.google.com/file/d/15mi9p2nT10lqj9qJEPHwhnFsGV0U9ohO/preview",
-      },
-      {
-         id: 1,
-         animeName: "Jujutsu Kaisen",
-         number: 2,
-         name: "Por mí",
-         description:
-            "El hecho de comerse el dedo de Sukuna le supondrá un grave problema a Yuuji, puesto que ahora tienen que ejecutarlo. Pero tiene un modo temporal de salvarse.",
-         date: "Oct 9, 2020",
-         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_2.jpg`,
-         videoUrl: "https://drive.google.com/file/d/14tAZoa0yUvWWSKZVlB10SDZ3cvwR3gdn/preview",
-      },
-      {
-         id: 2,
-         animeName: "Jujutsu Kaisen",
-         number: 3,
-         name: "Chica de acero",
-         description:
-            "Yuuji deberá demostrar que es apto para formar parte de la Preparatoria de Hechicería. Además, conocerán a la tercera integrante del equipo.",
-         date: "Oct 16, 2020",
-         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_3.jpg`,
-         videoUrl: "https://drive.google.com/file/d/1zOoi8-LnWdqh3WgsMrRDsLLri3H3CB9D/preview",
-      },
-   ]);
-
    const [studioElems, setStudioElems] = React.useState<StudioObj[]>([
       {
          id: 0,
@@ -84,6 +49,45 @@ function App() {
          description: `MAPPA Co, Ltd. (Japanese: 株式会社MAPPA, Hepburn: Kabushiki-gaisha MAPPA) is a Japanese animation studio. The studio has produced anime works including Kids on the Slope, Terror in Resonance, Yuri!!! on Ice, In This Corner of the World, Kakegurui, Banana Fish, Zombieland Saga, Dororo, Dorohedoro, Jujutsu Kaisen and the final season of Attack on Titan.
          "MAPPA" is an acronym for Maruyama Animation Produce Project Association. It was founded on June 14, 2011, by Masao Maruyama, a founder and former producer of Madhouse In April 2016, Maruyama resigned his position in the studio and founded a new studio, Studio M2`,
          date: "October 1998",
+      },
+   ]);
+
+   const [episodeElems, setEpisodeElems] = React.useState<EpisodeObj[]>([
+      {
+         id: 0,
+         number: 1,
+         name: "Ryomen Sukuna",
+         description:
+            "Yuuji es un joven que posee un talismán muy poderoso y él ni siquiera es consciente de ello. Pero un día se topa con Fushiguro y su vida dará un cambio radical.",
+         date: "Oct 2, 2020",
+         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_1.jpg`,
+         videoUrl: "https://drive.google.com/file/d/15mi9p2nT10lqj9qJEPHwhnFsGV0U9ohO/preview",
+         anime: undefined,
+         studio: studioElems[0],
+      },
+      {
+         id: 1,
+         number: 2,
+         name: "Por mí",
+         description:
+            "El hecho de comerse el dedo de Sukuna le supondrá un grave problema a Yuuji, puesto que ahora tienen que ejecutarlo. Pero tiene un modo temporal de salvarse.",
+         date: "Oct 9, 2020",
+         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_2.jpg`,
+         videoUrl: "https://drive.google.com/file/d/14tAZoa0yUvWWSKZVlB10SDZ3cvwR3gdn/preview",
+         anime: undefined,
+         studio: studioElems[0],
+      },
+      {
+         id: 2,
+         number: 3,
+         name: "Chica de acero",
+         description:
+            "Yuuji deberá demostrar que es apto para formar parte de la Preparatoria de Hechicería. Además, conocerán a la tercera integrante del equipo.",
+         date: "Oct 16, 2020",
+         thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_3.jpg`,
+         videoUrl: "https://drive.google.com/file/d/1zOoi8-LnWdqh3WgsMrRDsLLri3H3CB9D/preview",
+         anime: undefined,
+         studio: studioElems[0],
       },
    ]);
 
@@ -103,6 +107,10 @@ function App() {
       },
    ]);
 
+   episodeElems[0].anime = animeElems[0];
+   episodeElems[1].anime = animeElems[0];
+   episodeElems[2].anime = animeElems[0];
+
    const [tagOptions, setTagOptions] = React.useState<TagOption[]>([
       {label: "test 1"},
       {label: "test 2"},
@@ -111,6 +119,16 @@ function App() {
 
    const handleAddTagOption = (newTagOption: TagOption) => {
       setTagOptions([...tagOptions, newTagOption]);
+   };
+
+   const initialStudioOptions: studioOption[] = studioElems.map((studio) => {
+      return {label: studio.name, id: studio.id};
+   });
+
+   const [studioOptions, setStudioOptions] = React.useState<studioOption[]>(initialStudioOptions);
+
+   const handleAddStudioOption = (newStudioOption: studioOption) => {
+      setStudioOptions([...studioOptions, newStudioOption]);
    };
 
    const handleCreateAnime = (newAnimeElem: AnimeObj) => {
@@ -123,14 +141,36 @@ function App() {
       setAnimeElems(arrayCopy);
    };
 
-   const handleCreateEpisode = (newEpisodeElem: EpisodeObj) => {
+   const handleCreateEpisode = (animeId: number, newEpisodeElem: EpisodeObj, studioId: number) => {
       console.log("nuevo elemento!", newEpisodeElem);
       // creamos un nuevo arreglo
-      const arrayCopy = [
+      const animeIndex = animeElems.findIndex((anime) => {
+         if (anime.id === animeId) {
+            return true;
+         }
+         return false;
+      });
+
+      const studioIndex = studioElems.findIndex((studio) => {
+         if (studio.id === studioId) {
+            return true;
+         }
+         return false;
+      });
+
+      newEpisodeElem.anime = animeElems[animeIndex];
+      newEpisodeElem.studio = studioElems[studioIndex];
+
+      console.log(newEpisodeElem);
+
+      const episodesCopy = [
          ...episodeElems, // ponemos todos los elementos que ya existían
          newEpisodeElem,
       ];
-      setEpisodeElems(arrayCopy);
+
+      setEpisodeElems(episodesCopy);
+
+      animeElems[animeIndex].episodes = [...animeElems[animeIndex].episodes, newEpisodeElem];
    };
 
    return (
@@ -157,7 +197,7 @@ function App() {
                </Route>
 
                <Route path="/anime-details/:id">
-                  <AnimeView list={animeElems} />
+                  <AnimeView list={animeElems} studioOptions={studioOptions} onCreateEpisode={handleCreateEpisode} />
                </Route>
 
                <Route path="/episode-details/:id">

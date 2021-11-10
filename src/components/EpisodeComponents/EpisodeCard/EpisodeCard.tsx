@@ -1,27 +1,25 @@
 import * as React from "react";
 import {useHistory} from "react-router-dom";
+import {EpisodeObj} from "../../../Types/EpisodeObj";
 import "./EpisodeCard.css";
 
 export interface EpisodeCardProps {
-   id: number;
-   anime: string;
-   thumbnail: string;
-   number: number;
+   episode: EpisodeObj;
 }
 
-const EpisodeCard: React.FC<EpisodeCardProps> = ({id, anime, thumbnail, number}) => {
+const EpisodeCard: React.FC<EpisodeCardProps> = ({episode}) => {
    const history = useHistory();
 
    const handleView = () => {
-      history.push(`/episode-details/${id}`);
+      history.push(`/episode-details/${episode.id}`);
    };
 
    return (
       <div className="EpisodeCard" onClick={handleView}>
-         <img className="EpisodeCard__img" src={thumbnail} alt="episode cover" />
+         <img className="EpisodeCard__img" src={episode.thumbnail} alt="episode cover" />
          <figcaption className="EpisodeCard__figcaption">
-            <h1>{anime}</h1>
-            <h2>Episode {number}</h2>
+            <h1>{episode.anime?.name}</h1>
+            <h2>Episode {episode.number}</h2>
          </figcaption>
       </div>
    );
