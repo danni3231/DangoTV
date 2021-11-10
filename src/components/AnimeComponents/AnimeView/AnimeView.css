@@ -48,6 +48,15 @@
    font-size: 16px;
 }
 
+.AnimeView__Studios {
+   margin-bottom: 16px;
+}
+
+.AnimeView__Studios .color {
+   color: #c678dd;
+   margin-right: 8px;
+}
+
 .AnimeView__Status {
    color: #c678dd;
 

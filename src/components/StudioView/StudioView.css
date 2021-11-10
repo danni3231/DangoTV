@@ -1,0 +1,34 @@
+.StudioView {
+   display: flex;
+   padding: 80px;
+}
+
+.StudioView__Info {
+   width: 60%;
+   padding-right: 80px;
+}
+
+.StudioView__Logo {
+   max-width: 500px;
+   margin-bottom: 16px;
+}
+
+.StudioView__Name {
+   margin-bottom: 16px;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 36px;
+}
+
+.StudioView__Description {
+   margin-bottom: 8px;
+}
+
+.StudioView__Date {
+   margin-bottom: 32px;
+}
+
+.StudioView__News {
+   width: 40%;
+   padding-left: 80px;
+}

@@ -77,6 +77,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
             status: status,
             tags: tagsStrings,
             episodes: [],
+            studios: [],
          };
          onCreate(anime);
       }

@@ -1,21 +1,25 @@
 import React from "react";
-import {HashRouter, Route, Switch, Redirect} from "react-router-dom";
 import "./App.css";
+import {HashRouter, Route, Switch, Redirect} from "react-router-dom";
 
 import {BannerObj} from "../../Types/BannerObj";
 import {AnimeObj} from "../../Types/AnimeObj";
 import {EpisodeObj} from "../../Types/EpisodeObj";
+import {TagOption} from "../../Types/TagOption";
+import {StudioObj} from "../../Types/StudioObj";
 
-import AnimeForm from "../Forms/AnimeForm/AnimeForm";
+import Gallery from "../Gallery/Gallery";
 import Title from "../Title/Title";
 import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
+import AnimeForm from "../Forms/AnimeForm/AnimeForm";
 import AnimeView from "../AnimeComponents/AnimeView/AnimeView";
-import Gallery from "../Gallery/Gallery";
-import {TagOption} from "../../Types/TagOption";
+import EpisodeView from "../EpisodeComponents/EpisodeView/EpisodeView";
+
+//utils
 import {ThemeProvider} from "@emotion/react";
 import {theme} from "../../utils/Theme";
-import EpisodeView from "../EpisodeComponents/EpisodeView/EpisodeView";
+import StudioView from "../StudioView/StudioView";
 
 function App() {
    const animesBanner: BannerObj[] = [
@@ -38,7 +42,7 @@ function App() {
 
    const [episodeElems, setEpisodeElems] = React.useState<EpisodeObj[]>([
       {
-         id: Math.random(),
+         id: 0,
          animeName: "Jujutsu Kaisen",
          number: 1,
          name: "Ryomen Sukuna",
@@ -49,7 +53,7 @@ function App() {
          videoUrl: "https://drive.google.com/file/d/15mi9p2nT10lqj9qJEPHwhnFsGV0U9ohO/preview",
       },
       {
-         id: Math.random(),
+         id: 1,
          animeName: "Jujutsu Kaisen",
          number: 2,
          name: "Por mí",
@@ -60,7 +64,7 @@ function App() {
          videoUrl: "https://drive.google.com/file/d/14tAZoa0yUvWWSKZVlB10SDZ3cvwR3gdn/preview",
       },
       {
-         id: Math.random(),
+         id: 2,
          animeName: "Jujutsu Kaisen",
          number: 3,
          name: "Chica de acero",
@@ -69,6 +73,17 @@ function App() {
          date: "Oct 16, 2020",
          thumbnail: `${process.env.PUBLIC_URL}/images/Thumbnails/jujutsu/jujutsu_episode_3.jpg`,
          videoUrl: "https://drive.google.com/file/d/1zOoi8-LnWdqh3WgsMrRDsLLri3H3CB9D/preview",
+      },
+   ]);
+
+   const [studioElems, setStudioElems] = React.useState<StudioObj[]>([
+      {
+         id: 0,
+         name: "Mappa",
+         logo: `${process.env.PUBLIC_URL}/images/StudiosLogos/Mappa_Logo.svg`,
+         description: `MAPPA Co, Ltd. (Japanese: 株式会社MAPPA, Hepburn: Kabushiki-gaisha MAPPA) is a Japanese animation studio. The studio has produced anime works including Kids on the Slope, Terror in Resonance, Yuri!!! on Ice, In This Corner of the World, Kakegurui, Banana Fish, Zombieland Saga, Dororo, Dorohedoro, Jujutsu Kaisen and the final season of Attack on Titan.
+         "MAPPA" is an acronym for Maruyama Animation Produce Project Association. It was founded on June 14, 2011, by Masao Maruyama, a founder and former producer of Madhouse In April 2016, Maruyama resigned his position in the studio and founded a new studio, Studio M2`,
+         date: "October 1998",
       },
    ]);
 
@@ -83,7 +98,8 @@ function App() {
                an organization that fights the curses... and thus begins the heroic tale of a boy who became a curse to exorcise a curse, a life from which he could never turn back.`,
          status: "Finish",
          tags: ["Action", "Shonen", "Supernatural"],
-         episodes: [episodeElems[0]],
+         episodes: [episodeElems[0], episodeElems[1], episodeElems[2]],
+         studios: [studioElems[0]],
       },
    ]);
 
@@ -148,11 +164,17 @@ function App() {
                   <EpisodeView list={episodeElems} />
                </Route>
 
+               <Route path="/studio-details/:id">
+                  <StudioView listStudio={studioElems} listAnime={[]} />
+               </Route>
+
                <Route path="/Forms">
                   <AnimeForm onCreate={handleCreateAnime} tagOptions={tagOptions} addTagOption={handleAddTagOption} />
                </Route>
 
-               <Route path="/Studios"></Route>
+               <Route path="/Studios">
+                  <Title text="Studios" url="" />
+               </Route>
             </Switch>
          </HashRouter>
       </ThemeProvider>

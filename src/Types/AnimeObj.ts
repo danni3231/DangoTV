@@ -1,4 +1,5 @@
 import {EpisodeObj} from "./EpisodeObj";
+import {StudioObj} from "./StudioObj";
 
 export type AnimeObj = {
    id: number;
@@ -9,4 +10,5 @@ export type AnimeObj = {
    status: string;
 
    episodes: EpisodeObj[];
+   studios: StudioObj[];
 };
