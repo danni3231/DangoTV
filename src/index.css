@@ -46,7 +46,7 @@ hr {
 .Btn {
    min-width: 140px;
    height: 48px;
-   padding: 8px;
+   padding: 8px 24px;
    background: #282c34;
    border-radius: 30px;
    outline: none;
@@ -124,6 +124,7 @@ hr {
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 80px;
 }
 
 .Form h2 {

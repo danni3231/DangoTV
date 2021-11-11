@@ -1,8 +1,8 @@
 import {Autocomplete, TextField} from "@mui/material";
 import * as React from "react";
 import {useHistory} from "react-router";
-import {EpisodeObj} from "../../../Types/EpisodeObj";
-import {studioOption} from "../../../Types/StudiosOption";
+import {EpisodeObj} from "../../Types/EpisodeObj";
+import {studioOption} from "../../Types/StudiosOption";
 
 interface EpisodeFormProps {
    studioOptions: studioOption[];

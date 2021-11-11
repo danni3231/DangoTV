@@ -8,8 +8,7 @@ import {EpisodeObj} from "../../../Types/EpisodeObj";
 
 import Title from "../../Title/Title";
 import Gallery from "../../Gallery/Gallery";
-import EpisodeForm from "../../Forms/EpisodeForm/EpisodeForm";
-import NavLink from "../../Header/NavLink/NavLink";
+import EpisodeForm from "../../Forms/EpisodeForm";
 
 interface AnimeViewProps {
    list: AnimeObj[];

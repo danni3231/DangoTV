@@ -8,11 +8,18 @@ import Title from "../Title/Title";
 
 interface StudioViewProps {
    listStudio: StudioObj[];
+   onEdit?: (id: number) => void;
 }
 
-const StudioView: React.FC<StudioViewProps> = ({listStudio}) => {
+const StudioView: React.FC<StudioViewProps> = ({listStudio, onEdit}) => {
    const {id: idString} = useParams<{id: string}>();
    const id = parseFloat(idString);
+
+   const handleEdit: React.MouseEventHandler<HTMLButtonElement> = () => {
+      if (onEdit) {
+         onEdit(id);
+      }
+   };
 
    const elemStudio = listStudio.find((elem) => {
       // return elem.id === parseInt(id);
@@ -38,6 +45,12 @@ const StudioView: React.FC<StudioViewProps> = ({listStudio}) => {
 
             <Title text="Best Animes" url=""></Title>
             <Gallery type="Anime" listAnime={elemStudio.animes}></Gallery>
+
+            <div className="AnimeView__Functions">
+               <button className="Btn" onClick={handleEdit}>
+                  Edit Studio Info
+               </button>
+            </div>
          </section>
          <hr />
          <section className="StudioView__News"></section>

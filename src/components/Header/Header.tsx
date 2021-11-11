@@ -23,7 +23,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
                onClick={handleHomeClick}
             />
             <nav>
-               <NavLink text="Forms" url="/Forms" />
+               <NavLink text="Form Anime" url="/Form-anime" />
+               <NavLink text="Form Studio" url="/Form-studio" />
                <NavLink text="Studios" url="/Studios" />
             </nav>
          </div>

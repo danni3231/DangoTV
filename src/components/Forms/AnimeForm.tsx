@@ -1,8 +1,8 @@
 import * as React from "react";
 import {useHistory} from "react-router";
-import {AnimeObj} from "../../../Types/AnimeObj";
+import {AnimeObj} from "../../Types/AnimeObj";
 import {Autocomplete, TextField} from "@mui/material";
-import {TagOption} from "../../../Types/TagOption";
+import {TagOption} from "../../Types/TagOption";
 
 interface AnimeFormProps {
    tagOptions: TagOption[];
@@ -42,7 +42,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({
       setDescription(event.target.value);
    };
 
-   const [cover, setCover] = React.useState("");
+   const [cover, setCover] = React.useState(editAnimeElem?.cover || "");
    const handleCoverChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
       setCover(event.target.value);
    };
@@ -79,15 +79,14 @@ const AnimeForm: React.FC<AnimeFormProps> = ({
 
    const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event: any) => {
       event.preventDefault();
-      setFormSubmitted(true);
 
       const tagsStrings = tags.map((obj) => obj.label);
 
-      if (type === "create" && isNameValid && isDescriptionValid) {
+      if (type === "create" && isNameValid && isDescriptionValid && isCoverValid && isStatusValid && isTagsValid) {
          const anime: AnimeObj = {
             id: Math.random(),
             name: name,
-            cover: `${process.env.PUBLIC_URL}/images/Covers/` + cover,
+            cover: cover,
             description: description,
             status: status,
             tags: tagsStrings,
@@ -97,11 +96,11 @@ const AnimeForm: React.FC<AnimeFormProps> = ({
          onCreate(anime);
 
          history.push("/");
-      } else if (type === "edit") {
+      } else if (type === "edit" && isNameValid && isDescriptionValid && isCoverValid && isStatusValid && isTagsValid) {
          const anime: AnimeObj = {
             id: Math.random(),
             name: name,
-            cover: `${process.env.PUBLIC_URL}/images/Covers/` + cover,
+            cover: cover,
             description: description,
             status: status,
             tags: tagsStrings,
@@ -115,7 +114,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({
    };
 
    return (
-      <section>
+      <section className="Form__Container">
          <form className="Form" onSubmit={handleSubmit}>
             <h2>{type === "create" ? "Create" : "Edit"} AnimeObj</h2>
             <label className="input">

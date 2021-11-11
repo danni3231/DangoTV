@@ -12,7 +12,7 @@ import Gallery from "../Gallery/Gallery";
 import Title from "../Title/Title";
 import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
-import AnimeForm from "../Forms/AnimeForm/AnimeForm";
+import AnimeForm from "../Forms/AnimeForm";
 import AnimeView from "../AnimeComponents/AnimeView/AnimeView";
 import EpisodeView from "../EpisodeComponents/EpisodeView/EpisodeView";
 
@@ -21,6 +21,8 @@ import {ThemeProvider} from "@emotion/react";
 import {theme} from "../../utils/Theme";
 import StudioView from "../StudioView/StudioView";
 import {studioOption} from "../../Types/StudiosOption";
+import StudioForms from "../Forms/StudioForm";
+import StudioForm from "../Forms/StudioForm";
 
 function App() {
    //react variables
@@ -38,6 +40,9 @@ function App() {
          return false;
       });
 
+      newAnimeElem.studios = animeElems[animeIndex].studios;
+      newAnimeElem.episodes = animeElems[animeIndex].episodes;
+
       animeElems[animeIndex] = newAnimeElem;
 
       setAnimeFormType("create");
@@ -47,7 +52,32 @@ function App() {
    const handleBeginEditAnime = (editId: number) => {
       setAnimeEditId(editId);
       setAnimeFormType("edit");
-      history.push("/Forms");
+      history.push("/Form-anime");
+   };
+
+   const [studioFormType, setStudioFormType] = React.useState<"create" | "edit">("create");
+   const [studioEditId, setStudioEditId] = React.useState<number | null>(null);
+
+   const handleEditStudio = (editId: number, newStudioElem: StudioObj) => {
+      const studioIndex = studioElems.findIndex((studio) => {
+         if (studio.id === editId) {
+            return true;
+         }
+         return false;
+      });
+
+      newStudioElem.animes = studioElems[studioIndex].animes;
+
+      studioElems[studioIndex] = newStudioElem;
+
+      setStudioFormType("create");
+      setStudioEditId(null);
+   };
+
+   const handleBeginEditStudio = (editId: number) => {
+      setStudioEditId(editId);
+      setStudioFormType("edit");
+      history.push("/Form-studio");
    };
 
    // array collections and states
@@ -244,6 +274,18 @@ function App() {
       console.log(studioElems[studioIndex]);
    };
 
+   const handleCreateStudio = (newStudioElem: StudioObj) => {
+      // creamos un nuevo arreglo
+      const arrayCopy = [
+         ...studioElems, // ponemos todos los elementos que ya existían
+         newStudioElem,
+      ];
+      setStudioElems(arrayCopy);
+      handleAddStudioOption({label: newStudioElem.name, id: newStudioElem.id});
+
+      console.log(studioElems, studioOptions);
+   };
+
    return (
       <ThemeProvider theme={theme}>
          <Header />
@@ -280,10 +322,10 @@ function App() {
             </Route>
 
             <Route path="/studio-details/:id">
-               <StudioView listStudio={studioElems} />
+               <StudioView listStudio={studioElems} onEdit={handleBeginEditStudio} />
             </Route>
 
-            <Route path="/Forms">
+            <Route path="/Form-anime">
                <AnimeForm
                   animeElems={animeElems}
                   onCreate={handleCreateAnime}
@@ -292,6 +334,16 @@ function App() {
                   type={animeFormType}
                   editId={animeEditId}
                   onEdit={handleEditAnime}
+               />
+            </Route>
+
+            <Route path="/Form-studio">
+               <StudioForm
+                  studioElems={studioElems}
+                  onCreate={handleCreateStudio}
+                  type={studioFormType}
+                  editId={studioEditId}
+                  onEdit={handleEditStudio}
                />
             </Route>
 
