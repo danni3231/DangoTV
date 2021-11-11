@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./App.css";
-import {HashRouter, Route, Switch, Redirect} from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 
 import {BannerObj} from "../../Types/BannerObj";
 import {AnimeObj} from "../../Types/AnimeObj";
@@ -23,6 +23,34 @@ import StudioView from "../StudioView/StudioView";
 import {studioOption} from "../../Types/StudiosOption";
 
 function App() {
+   //react variables
+   const history = useHistory();
+
+   // forms states anf functions
+   const [animeFormType, setAnimeFormType] = React.useState<"create" | "edit">("create");
+   const [animeEditId, setAnimeEditId] = React.useState<number | null>(null);
+
+   const handleEditAnime = (editId: number, newAnimeElem: AnimeObj) => {
+      const animeIndex = animeElems.findIndex((anime) => {
+         if (anime.id === editId) {
+            return true;
+         }
+         return false;
+      });
+
+      animeElems[animeIndex] = newAnimeElem;
+
+      setAnimeFormType("create");
+      setAnimeEditId(null);
+   };
+
+   const handleBeginEditAnime = (editId: number) => {
+      setAnimeEditId(editId);
+      setAnimeFormType("edit");
+      history.push("/Forms");
+   };
+
+   // array collections and states
    const animesBanner: BannerObj[] = [
       {
          id: 0,
@@ -125,15 +153,16 @@ function App() {
       {label: "Animals"},
    ]);
 
-   const handleAddTagOption = (newTagOption: TagOption) => {
-      setTagOptions([...tagOptions, newTagOption]);
-   };
-
    const initialStudioOptions: studioOption[] = studioElems.map((studio) => {
       return {label: studio.name, id: studio.id};
    });
 
    const [studioOptions, setStudioOptions] = React.useState<studioOption[]>(initialStudioOptions);
+
+   // functions
+   const handleAddTagOption = (newTagOption: TagOption) => {
+      setTagOptions([...tagOptions, newTagOption]);
+   };
 
    const handleAddStudioOption = (newStudioOption: studioOption) => {
       setStudioOptions([...studioOptions, newStudioOption]);
@@ -195,48 +224,59 @@ function App() {
 
    return (
       <ThemeProvider theme={theme}>
-         <HashRouter>
-            <Header />
+         <Header />
 
-            <Switch>
-               <Route exact path="/">
-                  <Banner animeList={animesBanner} />
-                  <article className="Main">
-                     <section className="Main__Content">
-                        <Title text="Latest Episodes" url="" />
+         <Switch>
+            <Route exact path="/">
+               <Banner animeList={animesBanner} />
+               <article className="Main">
+                  <section className="Main__Content">
+                     <Title text="Latest Episodes" url="" />
 
-                        <Gallery type="Episode" listEpisode={episodeElems} />
+                     <Gallery type="Episode" listEpisode={episodeElems} />
 
-                        <Title text="Latest Animes" url="" />
+                     <Title text="Latest Animes" url="" />
 
-                        <Gallery type="Anime" listAnime={animeElems} withoutPadding />
-                     </section>
-                     <hr />
-                     <section className="Main__News"></section>
-                  </article>
-               </Route>
+                     <Gallery type="Anime" listAnime={animeElems} withoutPadding />
+                  </section>
+                  <hr />
+                  <section className="Main__News"></section>
+               </article>
+            </Route>
 
-               <Route path="/anime-details/:id">
-                  <AnimeView list={animeElems} studioOptions={studioOptions} onCreateEpisode={handleCreateEpisode} />
-               </Route>
+            <Route path="/anime-details/:id">
+               <AnimeView
+                  list={animeElems}
+                  studioOptions={studioOptions}
+                  onCreateEpisode={handleCreateEpisode}
+                  onEdit={handleBeginEditAnime}
+               />
+            </Route>
 
-               <Route path="/episode-details/:id">
-                  <EpisodeView list={episodeElems} />
-               </Route>
+            <Route path="/episode-details/:id">
+               <EpisodeView list={episodeElems} />
+            </Route>
 
-               <Route path="/studio-details/:id">
-                  <StudioView listStudio={studioElems} listAnime={[]} />
-               </Route>
+            <Route path="/studio-details/:id">
+               <StudioView listStudio={studioElems} listAnime={[]} />
+            </Route>
 
-               <Route path="/Forms">
-                  <AnimeForm onCreate={handleCreateAnime} tagOptions={tagOptions} addTagOption={handleAddTagOption} />
-               </Route>
+            <Route path="/Forms">
+               <AnimeForm
+                  animeElems={animeElems}
+                  onCreate={handleCreateAnime}
+                  tagOptions={tagOptions}
+                  addTagOption={handleAddTagOption}
+                  type={animeFormType}
+                  editId={animeEditId}
+                  onEdit={handleEditAnime}
+               />
+            </Route>
 
-               <Route path="/Studios">
-                  <Title text="Studios" url="" />
-               </Route>
-            </Switch>
-         </HashRouter>
+            <Route path="/Studios">
+               <Title text="Studios" url="" />
+            </Route>
+         </Switch>
       </ThemeProvider>
    );
 }

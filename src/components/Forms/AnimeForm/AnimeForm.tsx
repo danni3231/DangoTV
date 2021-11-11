@@ -6,21 +6,38 @@ import {TagOption} from "../../../Types/TagOption";
 
 interface AnimeFormProps {
    tagOptions: TagOption[];
+   type: "create" | "edit";
+   editId: number | null;
+   animeElems: AnimeObj[];
+
    onCreate: (newAnimeElem: AnimeObj) => void;
    addTagOption: (newTagOption: TagOption) => void;
+   onEdit: (editId: number, newAnimeElem: AnimeObj) => void;
 }
 
-const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions}) => {
+const AnimeForm: React.FC<AnimeFormProps> = ({
+   tagOptions,
+   type,
+   editId,
+   animeElems,
+   onCreate,
+   addTagOption,
+   onEdit,
+}) => {
    const history = useHistory();
+
+   const editAnimeElem = animeElems.find((elem) => {
+      return elem.id === editId;
+   });
 
    const [formSubmitted, setFormSubmitted] = React.useState(false);
 
-   const [name, setName] = React.useState("");
+   const [name, setName] = React.useState(editAnimeElem?.name || "");
    const handleNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
       setName(event.target.value);
    };
 
-   const [description, setDescription] = React.useState("");
+   const [description, setDescription] = React.useState(editAnimeElem?.description || "");
    const handleDescriptionChange: React.ChangeEventHandler<HTMLTextAreaElement> = (event) => {
       setDescription(event.target.value);
    };
@@ -30,17 +47,13 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
       setCover(event.target.value);
    };
 
-   const [status, setStatus] = React.useState("");
+   const [status, setStatus] = React.useState(editAnimeElem?.status || "");
    const handleStatusChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
       setStatus(event.target.value);
       console.log(status);
    };
 
-   const initialTags = [].map((tagString) => {
-      return {
-         label: tagString,
-      };
-   });
+   const initialTags: TagOption[] = [];
 
    const [tags, setTags] = React.useState<TagOption[]>(initialTags);
    const handleTagsChange = (event: React.SyntheticEvent<Element, Event>, values: (TagOption | string)[]) => {
@@ -59,7 +72,10 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
    //validaciones
 
    const isNameValid: boolean = name !== "" && name.length >= 5;
-   const isDescriptionValid: boolean = name !== "" && name.length >= 5;
+   const isDescriptionValid: boolean = description !== "" && name.length >= 5;
+   const isCoverValid: boolean = cover !== "";
+   const isStatusValid: boolean = status !== "";
+   const isTagsValid: boolean = tags !== [];
 
    const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event: any) => {
       event.preventDefault();
@@ -67,7 +83,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
 
       const tagsStrings = tags.map((obj) => obj.label);
 
-      if (isNameValid && isDescriptionValid) {
+      if (type === "create" && isNameValid && isDescriptionValid) {
          const anime: AnimeObj = {
             id: Math.random(),
             name: name,
@@ -79,16 +95,29 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
             studios: [],
          };
          onCreate(anime);
+
+         history.push("/");
+      } else if (type === "edit") {
+         const anime: AnimeObj = {
+            id: Math.random(),
+            name: name,
+            cover: `${process.env.PUBLIC_URL}/images/Covers/` + cover,
+            description: description,
+            status: status,
+            tags: tagsStrings,
+            episodes: [],
+            studios: [],
+         };
+         onEdit(editId!, anime);
+         history.push("/");
       }
       // si el formulario es válido, llamamos al evento onCreate
-
-      history.push("/");
    };
 
    return (
       <section>
          <form className="Form" onSubmit={handleSubmit}>
-            <h2>Create AnimeObj</h2>
+            <h2>{type === "create" ? "Create" : "Edit"} AnimeObj</h2>
             <label className="input">
                Name
                <input type="text" onChange={handleNameChange} value={name} placeholder="Name" />
@@ -144,7 +173,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({onCreate, addTagOption, tagOptions
                }}
             />
 
-            <button className="Btn">Create Anime</button>
+            <button className="Btn">{type === "create" ? "Create" : "Edit"} Anime</button>
          </form>
       </section>
    );
