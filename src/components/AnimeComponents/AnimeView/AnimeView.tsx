@@ -38,6 +38,10 @@ const AnimeView: React.FC<AnimeViewProps> = ({list, studioOptions, onCreateEpiso
       }
    };
 
+   const handleShowForm: React.MouseEventHandler<HTMLButtonElement> = () => {
+      history.push(`/anime-details/${id}/new-episode`);
+   };
+
    const elem = list.find((elem) => {
       // return elem.id === parseInt(id);
       if (elem.id === id) {
@@ -82,11 +86,17 @@ const AnimeView: React.FC<AnimeViewProps> = ({list, studioOptions, onCreateEpiso
          </section>
          <section className="AnimeView__Episodes">
             <Title text="Episodes" url={""}></Title>
-            <Gallery type="Episode" listEpisode={elem.episodes} withoutPadding />
-            <NavLink url={`/anime-details/${id}/new-episode`} text="Add Episode" />
-            <button className="Btn" onClick={handleEdit}>
-               Edit Anime Info
-            </button>
+            <Gallery type="Episode" listEpisode={elem.episodes} />
+
+            <div className="AnimeView__Functions">
+               <button className="Btn" onClick={handleShowForm}>
+                  Add Episode
+               </button>
+
+               <button className="Btn" onClick={handleEdit}>
+                  Edit Anime Info
+               </button>
+            </div>
          </section>
 
          <Route path="/anime-details/:id/new-episode">

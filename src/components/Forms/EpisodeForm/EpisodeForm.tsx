@@ -23,7 +23,7 @@ const EpisodeForm: React.FC<EpisodeFormProps> = ({studioOptions, onCreate}) => {
    };
 
    const [description, setDescription] = React.useState("");
-   const handleDescriptionChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+   const handleDescriptionChange: React.ChangeEventHandler<HTMLTextAreaElement> = (event) => {
       setDescription(event.target.value);
    };
 
@@ -89,8 +89,8 @@ const EpisodeForm: React.FC<EpisodeFormProps> = ({studioOptions, onCreate}) => {
    };
 
    return (
-      <section>
-         <form onSubmit={handleSubmit}>
+      <section className="Form__Container">
+         <form className="Form" onSubmit={handleSubmit}>
             <h2>Create EpisodeObj</h2>
 
             <label className="input">
@@ -105,7 +105,13 @@ const EpisodeForm: React.FC<EpisodeFormProps> = ({studioOptions, onCreate}) => {
 
             <label className="input">
                Description
-               <input type="text" onChange={handleDescriptionChange} value={description} placeholder="Cover" />
+               <textarea
+                  onChange={handleDescriptionChange}
+                  value={description}
+                  placeholder="Description"
+                  cols={30}
+                  rows={10}
+               />
             </label>
 
             <label className="input">

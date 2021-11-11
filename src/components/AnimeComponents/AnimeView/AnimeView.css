@@ -64,3 +64,8 @@
    font-weight: bold;
    font-size: 18px;
 }
+
+.AnimeView__Functions {
+   display: flex;
+   gap: 20px;
+}

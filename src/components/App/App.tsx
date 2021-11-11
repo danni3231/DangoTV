@@ -82,7 +82,7 @@ function App() {
       {
          id: 1,
          name: "Bones",
-         logo: `${process.env.PUBLIC_URL}/images/StudiosLogos/Mappa_Logo.svg`,
+         logo: `${process.env.PUBLIC_URL}/images/StudiosLogos/Bones_logo.svg`,
          description: `Bones was founded by Sunrise staff members Masahiko Minami, Hiroshi Ōsaka and Toshihiro Kawamoto in October 1998. One of their first projects was collaborating with Sunrise on Cowboy Bebop: Knockin' on Heaven's Door, a feature film based on the Cowboy Bebop anime series.
          In 2007, the studio suffered the loss of co-founder Hiroshi Ōsaka, well known for his works as character designer on series such as Mobile Suit Victory Gundam, Mobile Fighter G Gundam and The Mars Daybreak. Ōsaka had been battling with cancer, and died from the disease on September 24, 2007. He was 44 years old.`,
          date: "October 1998",
@@ -148,6 +148,8 @@ function App() {
    episodeElems[0].anime = animeElems[0];
    episodeElems[1].anime = animeElems[0];
    episodeElems[2].anime = animeElems[0];
+
+   studioElems[0].animes = [animeElems[0]];
 
    const [tagOptions, setTagOptions] = React.useState<TagOption[]>([
       {label: "test 1"},

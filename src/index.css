@@ -110,7 +110,7 @@ hr {
 /* forms style */
 
 .Form {
-   width: 600px;
+   width: 800px;
    padding: 80px;
    display: flex;
    flex-direction: column;
@@ -118,6 +118,12 @@ hr {
    border: 1px solid #282c34;
    border-radius: 16px;
    color: #282c34;
+}
+
+.Form__Container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .Form h2 {
