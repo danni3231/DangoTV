@@ -77,6 +77,7 @@ function App() {
          description: `MAPPA Co, Ltd. (Japanese: 株式会社MAPPA, Hepburn: Kabushiki-gaisha MAPPA) is a Japanese animation studio. The studio has produced anime works including Kids on the Slope, Terror in Resonance, Yuri!!! on Ice, In This Corner of the World, Kakegurui, Banana Fish, Zombieland Saga, Dororo, Dorohedoro, Jujutsu Kaisen and the final season of Attack on Titan.
          "MAPPA" is an acronym for Maruyama Animation Produce Project Association. It was founded on June 14, 2011, by Masao Maruyama, a founder and former producer of Madhouse In April 2016, Maruyama resigned his position in the studio and founded a new studio, Studio M2`,
          date: "June 14, 2011",
+         animes: [],
       },
       {
          id: 1,
@@ -85,6 +86,7 @@ function App() {
          description: `Bones was founded by Sunrise staff members Masahiko Minami, Hiroshi Ōsaka and Toshihiro Kawamoto in October 1998. One of their first projects was collaborating with Sunrise on Cowboy Bebop: Knockin' on Heaven's Door, a feature film based on the Cowboy Bebop anime series.
          In 2007, the studio suffered the loss of co-founder Hiroshi Ōsaka, well known for his works as character designer on series such as Mobile Suit Victory Gundam, Mobile Fighter G Gundam and The Mars Daybreak. Ōsaka had been battling with cancer, and died from the disease on September 24, 2007. He was 44 years old.`,
          date: "October 1998",
+         animes: [],
       },
    ]);
 
@@ -179,7 +181,6 @@ function App() {
    };
 
    const handleCreateEpisode = (animeId: number, newEpisodeElem: EpisodeObj, studioId: number) => {
-      console.log("nuevo elemento!", newEpisodeElem);
       // creamos un nuevo arreglo
       const animeIndex = animeElems.findIndex((anime) => {
          if (anime.id === animeId) {
@@ -195,10 +196,10 @@ function App() {
          return false;
       });
 
+      //link episode
+
       newEpisodeElem.anime = animeElems[animeIndex];
       newEpisodeElem.studio = studioElems[studioIndex];
-
-      console.log(newEpisodeElem);
 
       const episodesCopy = [
          ...episodeElems, // ponemos todos los elementos que ya existían
@@ -206,6 +207,8 @@ function App() {
       ];
 
       setEpisodeElems(episodesCopy);
+
+      //link anime
 
       animeElems[animeIndex].episodes = [...animeElems[animeIndex].episodes, newEpisodeElem];
 
@@ -220,6 +223,23 @@ function App() {
       if (!studioExist) {
          animeElems[animeIndex].studios = [...animeElems[animeIndex].studios, studioElems[studioIndex]];
       }
+
+      //link studio
+      let animeExist: boolean = false;
+
+      studioElems[studioIndex].animes.map((anime) => {
+         if (anime.id === animeId) {
+            animeExist = true;
+         }
+      });
+
+      console.log(animeExist, animeElems[animeIndex]);
+
+      if (!animeExist) {
+         studioElems[studioIndex].animes = [...studioElems[studioIndex].animes, animeElems[animeIndex]];
+      }
+
+      console.log(studioElems[studioIndex]);
    };
 
    return (
@@ -258,7 +278,7 @@ function App() {
             </Route>
 
             <Route path="/studio-details/:id">
-               <StudioView listStudio={studioElems} listAnime={[]} />
+               <StudioView listStudio={studioElems} />
             </Route>
 
             <Route path="/Forms">

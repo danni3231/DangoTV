@@ -8,7 +8,6 @@ import Title from "../Title/Title";
 
 interface StudioViewProps {
    listStudio: StudioObj[];
-   listAnime: AnimeObj[];
 }
 
 const StudioView: React.FC<StudioViewProps> = ({listStudio}) => {
@@ -38,7 +37,7 @@ const StudioView: React.FC<StudioViewProps> = ({listStudio}) => {
             </p>
 
             <Title text="Best Animes" url=""></Title>
-            <Gallery type="Anime" listAnime={[]}></Gallery>
+            <Gallery type="Anime" listAnime={elemStudio.animes}></Gallery>
          </section>
          <hr />
          <section className="StudioView__News"></section>
