@@ -48,6 +48,14 @@ function App() {
          logo: `${process.env.PUBLIC_URL}/images/StudiosLogos/Mappa_Logo.svg`,
          description: `MAPPA Co, Ltd. (Japanese: 株式会社MAPPA, Hepburn: Kabushiki-gaisha MAPPA) is a Japanese animation studio. The studio has produced anime works including Kids on the Slope, Terror in Resonance, Yuri!!! on Ice, In This Corner of the World, Kakegurui, Banana Fish, Zombieland Saga, Dororo, Dorohedoro, Jujutsu Kaisen and the final season of Attack on Titan.
          "MAPPA" is an acronym for Maruyama Animation Produce Project Association. It was founded on June 14, 2011, by Masao Maruyama, a founder and former producer of Madhouse In April 2016, Maruyama resigned his position in the studio and founded a new studio, Studio M2`,
+         date: "June 14, 2011",
+      },
+      {
+         id: 1,
+         name: "Bones",
+         logo: `${process.env.PUBLIC_URL}/images/StudiosLogos/Mappa_Logo.svg`,
+         description: `Bones was founded by Sunrise staff members Masahiko Minami, Hiroshi Ōsaka and Toshihiro Kawamoto in October 1998. One of their first projects was collaborating with Sunrise on Cowboy Bebop: Knockin' on Heaven's Door, a feature film based on the Cowboy Bebop anime series.
+         In 2007, the studio suffered the loss of co-founder Hiroshi Ōsaka, well known for his works as character designer on series such as Mobile Suit Victory Gundam, Mobile Fighter G Gundam and The Mars Daybreak. Ōsaka had been battling with cancer, and died from the disease on September 24, 2007. He was 44 years old.`,
          date: "October 1998",
       },
    ]);
@@ -171,6 +179,18 @@ function App() {
       setEpisodeElems(episodesCopy);
 
       animeElems[animeIndex].episodes = [...animeElems[animeIndex].episodes, newEpisodeElem];
+
+      let studioExist: boolean = false;
+
+      animeElems[animeIndex].studios.map((studio) => {
+         if (studio.id === studioId) {
+            studioExist = true;
+         }
+      });
+
+      if (!studioExist) {
+         animeElems[animeIndex].studios = [...animeElems[animeIndex].studios, studioElems[studioIndex]];
+      }
    };
 
    return (
