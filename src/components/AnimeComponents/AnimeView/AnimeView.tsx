@@ -20,6 +20,7 @@ interface AnimeViewProps {
    onCreateEpisode: (AnimeId: number, newEpisodeElem: EpisodeObj, studioId: number) => void;
    onEdit?: (id: number) => void;
    onEditEpisode: (id: number, newEpisodeElem: EpisodeObj) => void;
+   onDelete?: (id: number) => void;
 }
 
 const AnimeView: React.FC<AnimeViewProps> = ({
@@ -31,6 +32,7 @@ const AnimeView: React.FC<AnimeViewProps> = ({
    onCreateEpisode,
    onEdit,
    onEditEpisode,
+   onDelete,
 }) => {
    const {id: idString} = useParams<{id: string}>();
    const id = parseFloat(idString);
@@ -48,6 +50,12 @@ const AnimeView: React.FC<AnimeViewProps> = ({
    const handleEdit: React.MouseEventHandler<HTMLButtonElement> = () => {
       if (onEdit) {
          onEdit(id);
+      }
+   };
+
+   const handleDelete: React.MouseEventHandler<HTMLButtonElement> = () => {
+      if (onDelete) {
+         onDelete(id);
       }
    };
 
@@ -112,6 +120,10 @@ const AnimeView: React.FC<AnimeViewProps> = ({
 
                <button className="Btn" onClick={handleEdit}>
                   Edit Anime Info
+               </button>
+
+               <button className="Btn" onClick={handleDelete}>
+                  Delete Anime Info
                </button>
             </div>
          </section>

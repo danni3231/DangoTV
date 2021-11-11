@@ -325,6 +325,19 @@ function App() {
       console.log(studioElems, studioOptions);
    };
 
+   const handleDeleteAnime = (deleteId: number) => {
+      console.log("delete");
+
+      const animeElemsCopy = animeElems.filter((elem) => {
+         if (elem.id === deleteId) {
+            return false;
+         } else {
+            return true;
+         }
+      });
+      setAnimeElems(animeElemsCopy);
+   };
+
    return (
       <ThemeProvider theme={theme}>
          <Header />
@@ -357,6 +370,7 @@ function App() {
                   onCreateEpisode={handleCreateEpisode}
                   onEdit={handleBeginEditAnime}
                   onEditEpisode={handleEditEpisode}
+                  onDelete={handleDeleteAnime}
                />
             </Route>
 
