@@ -72,12 +72,49 @@ function App() {
 
       setStudioFormType("create");
       setStudioEditId(null);
+
+      setStudioOptions(
+         studioElems.map((studio) => {
+            return {label: studio.name, id: studio.id};
+         })
+      );
    };
 
    const handleBeginEditStudio = (editId: number) => {
       setStudioEditId(editId);
       setStudioFormType("edit");
       history.push("/Form-studio");
+   };
+
+   const [episodeFormType, setEpisodeFormType] = React.useState<"create" | "edit">("create");
+   const [episodeEditId, setEpisodeEditId] = React.useState<number | null>(null);
+
+   const handleEditEpisode = (editId: number, newEpisodeElem: EpisodeObj) => {
+      const episodeIndex = episodeElems.findIndex((episode) => {
+         if (episode.id === editId) {
+            return true;
+         }
+         return false;
+      });
+
+      episodeElems[episodeIndex] = newEpisodeElem;
+
+      setEpisodeFormType("create");
+      setEpisodeEditId(null);
+   };
+
+   const handleBeginEditEpisode = (editId: number) => {
+      const episodeIndex = episodeElems.findIndex((episode) => {
+         if (episode.id === editId) {
+            return true;
+         }
+         return false;
+      });
+
+      setEpisodeEditId(editId);
+      setEpisodeFormType("edit");
+
+      history.push(`/anime-details/${episodeElems[episodeIndex].anime?.id}/new-episode`);
    };
 
    // array collections and states
@@ -311,14 +348,18 @@ function App() {
             <Route path="/anime-details/:id">
                <AnimeView
                   list={animeElems}
+                  listEpisode={episodeElems}
+                  episodeFormType={episodeFormType}
+                  episodeEditId={episodeEditId}
                   studioOptions={studioOptions}
                   onCreateEpisode={handleCreateEpisode}
                   onEdit={handleBeginEditAnime}
+                  onEditEpisode={handleEditEpisode}
                />
             </Route>
 
             <Route path="/episode-details/:id">
-               <EpisodeView list={episodeElems} />
+               <EpisodeView list={episodeElems} onEdit={handleBeginEditEpisode} />
             </Route>
 
             <Route path="/studio-details/:id">

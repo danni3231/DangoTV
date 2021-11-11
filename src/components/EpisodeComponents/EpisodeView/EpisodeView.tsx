@@ -5,11 +5,18 @@ import {EpisodeObj} from "../../../Types/EpisodeObj";
 
 interface EpisodeViewProps {
    list: EpisodeObj[];
+   onEdit?: (id: number) => void;
 }
 
-const EpisodeView: React.FC<EpisodeViewProps> = ({list}) => {
+const EpisodeView: React.FC<EpisodeViewProps> = ({list, onEdit}) => {
    const {id: idString} = useParams<{id: string}>();
    const id = parseFloat(idString);
+
+   const handleEdit: React.MouseEventHandler<HTMLButtonElement> = () => {
+      if (onEdit) {
+         onEdit(id);
+      }
+   };
 
    const elem = list.find((elem) => {
       // return elem.id === parseInt(id);
@@ -55,6 +62,12 @@ const EpisodeView: React.FC<EpisodeViewProps> = ({list}) => {
                      <img className="Btn__Icon" src={`${process.env.PUBLIC_URL}/images/General/rightIcon.svg`} alt="" />
                   </div>
                </div>
+            </div>
+
+            <div className="AnimeView__Functions">
+               <button className="Btn" onClick={handleEdit}>
+                  Edit Episode Info
+               </button>
             </div>
          </section>
          <hr />

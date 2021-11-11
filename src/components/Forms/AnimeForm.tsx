@@ -98,7 +98,7 @@ const AnimeForm: React.FC<AnimeFormProps> = ({
          history.push("/");
       } else if (type === "edit" && isNameValid && isDescriptionValid && isCoverValid && isStatusValid && isTagsValid) {
          const anime: AnimeObj = {
-            id: Math.random(),
+            id: editAnimeElem?.id!,
             name: name,
             cover: cover,
             description: description,

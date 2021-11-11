@@ -12,12 +12,26 @@ import EpisodeForm from "../../Forms/EpisodeForm";
 
 interface AnimeViewProps {
    list: AnimeObj[];
+   listEpisode: EpisodeObj[];
    studioOptions: studioOption[];
+   episodeFormType: "create" | "edit";
+   episodeEditId: number | null;
+
    onCreateEpisode: (AnimeId: number, newEpisodeElem: EpisodeObj, studioId: number) => void;
    onEdit?: (id: number) => void;
+   onEditEpisode: (id: number, newEpisodeElem: EpisodeObj) => void;
 }
 
-const AnimeView: React.FC<AnimeViewProps> = ({list, studioOptions, onCreateEpisode, onEdit}) => {
+const AnimeView: React.FC<AnimeViewProps> = ({
+   list,
+   listEpisode,
+   episodeFormType,
+   episodeEditId,
+   studioOptions,
+   onCreateEpisode,
+   onEdit,
+   onEditEpisode,
+}) => {
    const {id: idString} = useParams<{id: string}>();
    const id = parseFloat(idString);
 
@@ -35,6 +49,10 @@ const AnimeView: React.FC<AnimeViewProps> = ({list, studioOptions, onCreateEpiso
       if (onEdit) {
          onEdit(id);
       }
+   };
+
+   const handleEditEpisode = (editId: number, newEpisodeElem: EpisodeObj) => {
+      onEditEpisode(editId, newEpisodeElem);
    };
 
    const handleShowForm: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -99,7 +117,14 @@ const AnimeView: React.FC<AnimeViewProps> = ({list, studioOptions, onCreateEpiso
          </section>
 
          <Route path="/anime-details/:id/new-episode">
-            <EpisodeForm onCreate={handleCreateEpisodeElem} studioOptions={studioOptions} />
+            <EpisodeForm
+               onCreate={handleCreateEpisodeElem}
+               studioOptions={studioOptions}
+               type={episodeFormType}
+               editId={episodeEditId}
+               episodeElems={listEpisode}
+               onEdit={handleEditEpisode}
+            />
          </Route>
       </article>
    );

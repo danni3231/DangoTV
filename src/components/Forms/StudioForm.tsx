@@ -60,7 +60,7 @@ const StudioForms: React.FC<StudioFormsProps> = ({type, editId, studioElems, onC
          history.push("/");
       } else if (type === "edit" && isNameValid && isDescriptionValid && isLogoValid && isDateValid) {
          const studio: StudioObj = {
-            id: Math.random(),
+            id: editStudioElem?.id!,
             name: name,
             logo: logo,
             description: description,
