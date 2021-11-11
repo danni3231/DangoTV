@@ -101,6 +101,8 @@ function App() {
 
       setEpisodeFormType("create");
       setEpisodeEditId(null);
+
+      history.push("/");
    };
 
    const handleBeginEditEpisode = (editId: number) => {
@@ -363,7 +365,7 @@ function App() {
             </Route>
 
             <Route path="/studio-details/:id">
-               <StudioView listStudio={studioElems} onEdit={handleBeginEditStudio} />
+               <StudioView listStudio={studioElems} listAnimes={animeElems} onEdit={handleBeginEditStudio} />
             </Route>
 
             <Route path="/Form-anime">
