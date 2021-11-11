@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/DangoTV/static/css/main.58632cb3.chunk.css",
-    "main.js": "/DangoTV/static/js/main.b089aa69.chunk.js",
-    "main.js.map": "/DangoTV/static/js/main.b089aa69.chunk.js.map",
+    "main.css": "/DangoTV/static/css/main.5425477e.chunk.css",
+    "main.js": "/DangoTV/static/js/main.d99dcf19.chunk.js",
+    "main.js.map": "/DangoTV/static/js/main.d99dcf19.chunk.js.map",
     "runtime-main.js": "/DangoTV/static/js/runtime-main.297db76c.js",
     "runtime-main.js.map": "/DangoTV/static/js/runtime-main.297db76c.js.map",
-    "static/js/2.c1931e36.chunk.js": "/DangoTV/static/js/2.c1931e36.chunk.js",
-    "static/js/2.c1931e36.chunk.js.map": "/DangoTV/static/js/2.c1931e36.chunk.js.map",
+    "static/js/2.3a5d92dc.chunk.js": "/DangoTV/static/js/2.3a5d92dc.chunk.js",
+    "static/js/2.3a5d92dc.chunk.js.map": "/DangoTV/static/js/2.3a5d92dc.chunk.js.map",
     "static/js/3.c2cb2bda.chunk.js": "/DangoTV/static/js/3.c2cb2bda.chunk.js",
     "static/js/3.c2cb2bda.chunk.js.map": "/DangoTV/static/js/3.c2cb2bda.chunk.js.map",
     "index.html": "/DangoTV/index.html",
-    "static/css/main.58632cb3.chunk.css.map": "/DangoTV/static/css/main.58632cb3.chunk.css.map",
-    "static/js/2.c1931e36.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.c1931e36.chunk.js.LICENSE.txt"
+    "static/css/main.5425477e.chunk.css.map": "/DangoTV/static/css/main.5425477e.chunk.css.map",
+    "static/js/2.3a5d92dc.chunk.js.LICENSE.txt": "/DangoTV/static/js/2.3a5d92dc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.297db76c.js",
-    "static/js/2.c1931e36.chunk.js",
-    "static/css/main.58632cb3.chunk.css",
-    "static/js/main.b089aa69.chunk.js"
+    "static/js/2.3a5d92dc.chunk.js",
+    "static/css/main.5425477e.chunk.css",
+    "static/js/main.d99dcf19.chunk.js"
   ]
 }
