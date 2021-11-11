@@ -23,6 +23,8 @@ import StudioView from "../StudioView/StudioView";
 import {studioOption} from "../../Types/StudiosOption";
 import StudioForms from "../Forms/StudioForm";
 import StudioForm from "../Forms/StudioForm";
+import News from "../News/News";
+import {NewsObj} from "../../Types/NewsObj";
 
 function App() {
    //react variables
@@ -128,13 +130,40 @@ function App() {
       },
       {
          id: 1,
-         img: `${process.env.PUBLIC_URL}/images/Banners/banner-naruto.png`,
+         img: `https://www.nacionflix.com/__export/1606233874227/sites/debate/img/2020/11/24/6_animes_clxsicos_para_maratonear_en_netflix.jpg_1800405350.jpg`,
          name: "Naruto",
       },
       {
          id: 2,
-         img: `${process.env.PUBLIC_URL}/images/Banners/banner-naruto.png`,
+         img: `https://seriestation.com/wp-content/uploads/Jujutsu-Kaisen-Season-2.jpeg`,
          name: "Jujutsu Kaisen",
+      },
+   ];
+
+   const news: NewsObj[] = [
+      {
+         id: Math.random(),
+         title: "Attack on Titan Final Season Part 2 Special Event Streams Worldwide on November 14",
+         text: "The previously announced Attack on Titan Final Season Part 2 Special Event, which is set to happen on November 14 in Japan, has been confirmed to stream worldwide! The event, which is bringing the staff and cast together, is set to celebrate the upcoming second part of the final season.",
+         img: "https://img1.ak.crunchyroll.com/i/spire4/68fd3150074933729ccf36ed72b3b4ae1636612351_thumb.png",
+      },
+      {
+         id: Math.random(),
+         title: "OPINION: MUSHI-SHI Helps Me Feel Represented As A Neurodivergent Person",
+         text: "The strangest things can make us feel valid — for me, it was recognizing traits of my neurodivergence in an anime character. Read on to see how I found myself in an episode of MUSHI-SHI.",
+         img: "https://img1.ak.crunchyroll.com/i/spire4/69ad61d1741ffae7476df87cb956e6021635881206_thumb.png",
+      },
+      {
+         id: Math.random(),
+         title: "Attack on Titan Final Season Part 2 Special Event Streams Worldwide on November 14",
+         text: "The previously announced Attack on Titan Final Season Part 2 Special Event, which is set to happen on November 14 in Japan, has been confirmed to stream worldwide! The event, which is bringing the staff and cast together, is set to celebrate the upcoming second part of the final season.",
+         img: "https://img1.ak.crunchyroll.com/i/spire4/68fd3150074933729ccf36ed72b3b4ae1636612351_thumb.png",
+      },
+      {
+         id: Math.random(),
+         title: "OPINION: MUSHI-SHI Helps Me Feel Represented As A Neurodivergent Person",
+         text: "The strangest things can make us feel valid — for me, it was recognizing traits of my neurodivergence in an anime character. Read on to see how I found myself in an episode of MUSHI-SHI.",
+         img: "https://img1.ak.crunchyroll.com/i/spire4/69ad61d1741ffae7476df87cb956e6021635881206_thumb.png",
       },
    ];
 
@@ -336,6 +365,7 @@ function App() {
          }
       });
       setAnimeElems(animeElemsCopy);
+      history.push("/");
    };
 
    return (
@@ -356,7 +386,12 @@ function App() {
                      <Gallery type="Anime" listAnime={animeElems} withoutPadding />
                   </section>
                   <hr />
-                  <section className="Main__News"></section>
+                  <section className="Main__News">
+                     <Title text="News" url={""} />
+                     {news.map((n) => {
+                        return <News key={n.id} newsElem={n} />;
+                     })}
+                  </section>
                </article>
             </Route>
 

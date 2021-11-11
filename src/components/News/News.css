@@ -1,0 +1,27 @@
+.News {
+   display: flex;
+   align-items: center;
+   width: 100%;
+   margin-bottom: 60px;
+}
+
+.News p {
+   font-size: 12px;
+}
+
+.News__Img {
+   width: 120px;
+   height: 120px;
+   border-radius: 16px;
+   margin-right: 16px;
+}
+
+.News__Info {
+   width: 100%;
+}
+
+.News__Title {
+   font-size: 14px !important;
+   font-weight: bold !important;
+   margin-bottom: 8px;
+}
